@@ -85,9 +85,10 @@ body {
    AUTHOR
 ========================= */
 .author {
-  margin-top: 40px;
+  margin-top: 24px;
   text-align: left;
 }
+
 
 .author h3 {
   margin-bottom: 12px;
@@ -109,6 +110,28 @@ body {
     background: radial-gradient(circle at top, #111, #000);
   }
 }
+.cta-bottom {
+  text-align: center;
+  margin: 28px 0 36px;
+}
+
+.cta-line {
+  display: inline-block;
+  padding: 12px 0;
+  color: var(--gold);
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  transition: all 0.3s ease;
+}
+
+.cta-line:hover {
+  opacity: 0.85;
+}
+
+
 </style>
 </head>
 
@@ -135,15 +158,16 @@ body {
   <p>Ce livre a été écrit pour ressentir.</p>
 
   <div class="cta-bottom">
-    <a href="livre.html">Découvrir le livre</a>
-  </div>
+  <a href="livre.html" class="cta-line">Découvrir le livre</a>
+</div>
+
 
   <div class="author">
     <h3>L’auteur</h3>
     <img src="auteur-pic.png" alt="Simon Lero">
     <p>
-      Je crois aux rencontres qui n’arrivent qu’une fois.<br>
-      À celles qui nous transforment.
+      Je crois aux rencontres qui n’arrivent qu’une<br>
+      fois. À celles qui nous transforment.
     </p>
   </div>
 

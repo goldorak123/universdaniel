@@ -112,6 +112,22 @@ body { position: fixed; inset: 0; }
     margin-top: 20px;
   }
 }
+@media (max-width: 768px) {
+
+  /* TEXTE INTRO : SORT DE L’IMAGE */
+  .hero .intro,
+  .hero .citation,
+  .hero .texte,
+  .hero p {
+    position: static !important;
+    color: #fff;
+  }
+
+  /* L’IMAGE MOBILE DOIT ÊTRE SEULE DANS LE HERO */
+  .hero {
+    display: block;
+  }
+}
 
 
 

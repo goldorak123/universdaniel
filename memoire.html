@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mémoire de recherche – Daniel L’Heureux</title>
+
+<style>
+:root {
+    --gold: #c9a24d;
+}
+
+/* 🔒 SÉCURITÉ ANTI-SCROLL HORIZONTAL */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ================= BASE ================= */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #111;
+    ...
+}
+
+
+/* ================= BASE ================= */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #111;
+
+    position: relative;
+    min-height: 100vh;
+
+    /* FOND PRINCIPAL : froissé */
+    background-image: url("fond-froisse.png");
+    background-repeat: repeat;
+    background-position: top center;
+    background-size: 1200px auto;
+
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* ================= FILIGRANE DIPLOME (REPEAT + SCROLL) ================= */
+body::before {
+    content: "";
+    position: absolute;
+    inset: -200px;
+    z-index: -1;
+
+    background-image: url("fond-memoire-diplome.png");
+    background-repeat: repeat;
+    background-position: -180px -620px;
+    background-size: 1400px auto;
+
+    filter: grayscale(1);
+    opacity: 0.15;
+
+    transform: rotate(-0.35deg);
+    transform-origin: center;
+
+    pointer-events: none;
+}
+
+/* ================= CONTENEUR ================= */
+.container {
+    max-width: 100%;
+    margin: 60px auto 30px; /* ↓ réduit fortement le vide final */
+    padding: 0 120px;
+    position: relative;
+}
+
+
+
+/* ================= TITRE ================= */
+h1 {
+    color: #6f5316;
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 90px;
+    text-shadow:
+        0 2px 3px rgba(0,0,0,0.55),
+        0 4px 10px rgba(0,0,0,0.35);
+}
+
+/* ================= ZONE COUVERTURE ================= */
+.cover-zone {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 80px;
+    align-items: flex-start;
+    margin-bottom: 120px;
+}
+
+/* ================= NOTE VIEILLIE ================= */
+.memoire-note {
+    position: relative;
+    background: rgba(245,240,228,0.95);
+    border: 1px solid rgba(0,0,0,0.25);
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+    padding: 26px 28px;
+    font-size: 15.5px;
+    line-height: 1.6;
+    text-align: left;
+    margin-top: 160px;
+    transform: rotate(-3.6deg);
+}
+
+/* punaise */
+.memoire-note::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 52%;
+    transform: translateX(-50%) rotate(-7deg);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff, #c0392b 40%, #7a1e16 70%);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+}
+
+/* ================= COUVERTURE ================= */
+.cover {
+    width: 100%;
+    max-width: 760px;
+    border-radius: 14px;
+    border: 2px solid rgba(0,0,0,0.25);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+    transform: rotate(1.2deg);
+    margin-top: 80px;
+
+    filter:
+        sepia(0.22)
+        saturate(0.85)
+        brightness(0.98)
+        contrast(1.02);
+}
+
+/* ================= IMAGES ================= */
+.previews {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 40px;
+    row-gap: 60px;
+}
+
+.previews img {
+    width: 100%;
+    border-radius: 12px;
+    border: 2px solid rgba(0,0,0,0.25);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    transition: transform 0.35s ease;
+}
+
+/* POSITIONNEMENT */
+.previews img:nth-of-type(1),
+.previews img:nth-of-type(4),
+.previews img:nth-of-type(7),
+.previews img:nth-of-type(10) {
+    grid-column: 1 / span 3;
+}
+
+.previews img:nth-of-type(2),
+.previews img:nth-of-type(5),
+.previews img:nth-of-type(8),
+.previews img:nth-of-type(11) {
+    grid-column: 4 / span 3;
+}
+
+.previews img:nth-of-type(3),
+.previews img:nth-of-type(6),
+.previews img:nth-of-type(9),
+.previews img:nth-of-type(12) {
+    grid-column: 2 / span 4;
+}
+
+/* ===== SCRAPBOOK WEB ===== */
+@media (min-width: 1024px) {
+    .previews img:nth-child(odd)  { transform: rotate(-1.8deg); }
+    .previews img:nth-child(even) { transform: rotate(1.8deg); }
+
+    .previews img:hover {
+        transform: rotate(0deg) scale(1.06);
+        z-index: 5;
+    }
+}
+
+/* ================= ACTION ================= */
+.actions {
+    margin-top: 60px;
+    margin-bottom: 40px; /* descend visuellement le bouton */
+}
+
+
+
+/* ================= BOUTON IMPRIMER (IDENTIQUE CV) ================= */
+.print-link{
+  display:inline-block;
+  padding:18px 6px;
+  text-decoration:none;
+  font-size:clamp(18px,2vw,26px);
+  letter-spacing:0.08em;
+  color:#5f4212;
+
+  border-top:2px solid rgba(95,66,18,0.9);
+  border-bottom:2px solid rgba(95,66,18,0.9);
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.45),
+    0 2px 6px rgba(0,0,0,0.55);
+}
+
+/* ================= FOOTER ================= */
+footer {
+    margin-top: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    color: #4a3b14;
+    line-height: 1.4;
+}
+
+
+
+/* ================= MOBILE ================= */
+@media (max-width: 900px) {
+
+    .container {
+        padding: 0 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    .cover-zone {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+
+    .memoire-note {
+        margin-top: 0;
+        transform: rotate(-2deg);
+    }
+
+    .cover {
+        transform: rotate(1deg);
+        margin-top: 0;
+    }
+
+    .previews {
+        display: block;
+    }
+
+    .previews img {
+        margin-bottom: 40px;
+    }
+
+    .actions {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+footer {
+    margin: 0 auto;
+    padding: 8px 0;
+}
+
+body::before {
+  inset: -60px;
+}
+    
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Mon mémoire de recherche de Baccalauréat</h1>
+
+<div class="cover-zone">
+
+    <div class="memoire-note">
+        Ce mémoire de recherche a été rédigé dans le cadre du <strong>baccalauréat universitaire</strong>, où la réalisation d’un travail de recherche original constituait une <strong>exigence obligatoire</strong> pour l’obtention du diplôme et du <strong>grade de bachelier</strong>.<br><br>
+        Plus qu’un simple exercice académique, il représente une démarche de réflexion approfondie, étalée sur plusieurs mois, et une étape marquante de mon parcours intellectuel et universitaire.
+    </div>
+
+    <img src="cover.jpg" class="cover" alt="Couverture du mémoire">
+
+</div>
+
+<div class="previews">
+    <img src="jean-paul2-memoire.jpg">
+    <img src="apercu6.jpg">
+    <img src="apercu7.jpg">
+    <img src="apercu8.jpg">
+    <img src="resume-memoire.jpg">
+    <img src="apercu1.jpg">
+    <img src="usa-memoire.jpg">
+    <img src="apercu2.jpg">
+    <img src="apercu3.jpg">
+    <img src="apercu4.jpg">
+    <img src="apercu5.jpg">
+    <img src="revue-memoire.jpg">
+</div>
+
+<div class="actions">
+    <a href="memoire.pdf" class="print-link" target="_blank">
+        VOIR LE PDF COMPLET / IMPRIMER
+    </a>
+</div>
+
+
+</div>
+
+<footer>
+© 2026 - <strong>Tous droits réservés</strong><br>
+La consultation, l'impression et la reproduction
+sont autorisées à condition que le nom de
+l’auteur soit clairement mentionné.
+</footer>
+
+</div>
+
+</body>
+</html>

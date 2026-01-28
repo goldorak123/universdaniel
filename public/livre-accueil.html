@@ -95,6 +95,23 @@ body { position: fixed; inset: 0; }
     padding: 20px;
   }
 }
+@media (max-width: 768px) {
+
+  /* FORCER TOUT LE TEXTE EN FLUX NORMAL */
+  .hero .texte,
+  .hero .description,
+  .hero p,
+  .hero h1,
+  .hero h2,
+  .hero h3 {
+    position: static !important;
+  }
+
+  /* ÉVITER QUE LE TEXTE SE COLLE À L’IMAGE */
+  .contenu {
+    margin-top: 20px;
+  }
+}
 
 
 

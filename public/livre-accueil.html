@@ -24,7 +24,7 @@ body {
 }
 
 /* =========================
-   CONTAINER GLOBAL
+   CONTAINER
 ========================= */
 .page {
   max-width: 1000px;
@@ -38,49 +38,54 @@ body {
 .livre-image {
   width: 100%;
   max-width: 420px;
-  margin: 0 auto 24px auto;
+  margin: 0 auto 28px auto;
   display: block;
 }
 
 /* =========================
-   TEXTE PRINCIPAL
+   TEXTE
 ========================= */
 .contenu {
   text-align: center;
-  margin-bottom: 32px;
-}
-
-.ligne {
-  width: 60px;
-  height: 1px;
-  background-color: #c9a24d;
-  margin: 16px auto;
+  margin-bottom: 48px;
 }
 
 .titre {
   font-size: 1.6rem;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .description {
   font-size: 1rem;
   opacity: 0.9;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 /* =========================
-   BOUTON CTA (NON PILULE)
+   LIGNES FINES
+========================= */
+.ligne {
+  width: 70px;
+  height: 1px;
+  background-color: #c9a24d;
+  margin: 20px auto;
+}
+
+/* =========================
+   CTA — RECTANGULAIRE
 ========================= */
 .cta {
   display: inline-block;
-  padding: 12px 28px;
+  padding: 12px 30px;
   border: 1px solid #c9a24d;
+  border-radius: 0;              /* 🔴 PAS DE PILULE */
   color: #c9a24d;
   text-decoration: none;
   font-size: 0.95rem;
-  letter-spacing: 0.5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  letter-spacing: 0.6px;
+  background: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .cta:hover {
@@ -89,10 +94,10 @@ body {
 }
 
 /* =========================
-   SECTION AUTEUR
+   AUTEUR
 ========================= */
 .auteur {
-  margin-top: 48px;
+  margin-top: 60px;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -109,7 +114,7 @@ body {
 
 .auteur-texte {
   font-size: 0.9rem;
-  max-width: 400px;
+  max-width: 420px;
   opacity: 0.9;
 }
 
@@ -118,22 +123,12 @@ body {
 ========================= */
 @media (min-width: 768px) {
 
-  .contenu {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 40px auto;
-  }
-
   .titre {
     font-size: 1.9rem;
   }
 
   .description {
     font-size: 1.05rem;
-  }
-
-  .auteur {
-    justify-content: center;
   }
 }
 </style>
@@ -143,23 +138,28 @@ body {
 
 <div class="page">
 
-  <!-- IMAGE LIVRE -->
+  <!-- IMAGE -->
   <img src="livre-accueil.png" alt="Rencontres au Clair de Lune" class="livre-image">
 
-  <!-- TEXTE -->
+  <!-- CONTENU -->
   <section class="contenu">
-    <div class="ligne"></div>
 
     <h1 class="titre">Rencontres au Clair de Lune</h1>
 
     <p class="description">
-      Un roman intimiste où le temps, la mémoire et l’amour se croisent
-      sous la lumière fragile de la lune.
+      Un roman intimiste où le temps, la mémoire et l’amour
+      se rencontrent sous la lumière fragile de la lune.
     </p>
 
+    <!-- LIGNE HAUTE -->
+    <div class="ligne"></div>
+
+    <!-- BOUTON -->
     <a href="#" class="cta">Découvrir mon livre</a>
 
+    <!-- LIGNE BASSE -->
     <div class="ligne"></div>
+
   </section>
 
   <!-- AUTEUR -->
@@ -167,7 +167,7 @@ body {
     <img src="auteur.jpg" alt="Simon Lero">
     <div class="auteur-texte">
       Simon Lero est l’auteur de <em>Rencontres au Clair de Lune</em>,
-      un récit sensible né d’une longue maturation littéraire.
+      un récit sensible et mûri au fil des années.
     </div>
   </section>
 

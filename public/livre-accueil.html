@@ -4,183 +4,172 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rencontres au Clair de Lune – Simon Lero</title>
-<meta name="description" content="Rencontres au Clair de Lune, roman poétique de Simon Lero.">
-<link rel="canonical" href="https://simonlero.com/livre-accueil.html">
+<title>Rencontres au Clair de Lune</title>
 
 <style>
 /* =========================
-   BASE
+   RESET & BASE
 ========================= */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #000;
-  color: #f0f0f0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #0b0b0b;
+  color: #e6dcc6;
+  line-height: 1.6;
 }
 
 /* =========================
-   HERO IMAGE
+   CONTAINER GLOBAL
 ========================= */
-.hero {
-  width: 100%;
-}
-
-.mobile-cover {
-  display: block;
-  width: 100%;
-  height: auto;
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 /* =========================
-   CONTENT
+   IMAGE LIVRE
+========================= */
+.livre-image {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto 24px auto;
+  display: block;
+}
+
+/* =========================
+   TEXTE PRINCIPAL
 ========================= */
 .contenu {
-  padding: 24px;
-}
-
-.contenu p {
-  margin-bottom: 16px;
-  line-height: 1.5;
-  font-size: 16px;
-}
-
-/* =========================
-   LANGUAGE
-========================= */
-.lang {
-  text-align: right;
-  margin-bottom: 20px;
-}
-
-.lang a {
-  color: #c9a24d;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* =========================
-   CTA
-========================= */
-.cta-bottom {
   text-align: center;
-  margin: 22px 0 28px; /* espace image ↔ texte réduit */
+  margin-bottom: 32px;
 }
 
-.cta-bottom a {
-  display: inline-block;
-  padding: 12px 0;
-  color: #c9a24d;
-  font-size: 16px;
-  letter-spacing: 1px;
-  text-decoration: none;
-  border-top: 1px solid #c9a24d;
-  border-bottom: 1px solid #c9a24d;
-  transition: opacity 0.3s ease;
+.ligne {
+  width: 60px;
+  height: 1px;
+  background-color: #c9a24d;
+  margin: 16px auto;
 }
 
-.cta-bottom a:hover {
-  opacity: 0.85;
+.titre {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
+.description {
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 24px;
+}
 
 /* =========================
-   AUTHOR
+   BOUTON CTA (NON PILULE)
 ========================= */
-.author {
-  margin-top: 24px;
+.cta {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 1px solid #c9a24d;
+  color: #c9a24d;
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta:hover {
+  background-color: #c9a24d;
+  color: #0b0b0b;
+}
+
+/* =========================
+   SECTION AUTEUR
+========================= */
+.auteur {
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
   text-align: left;
 }
 
-
-.author h3 {
-  margin-bottom: 12px;
-  font-weight: normal;
-  color: #c9a24d;
+.auteur img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
-.author img {
-  width: 140px;
-  border-radius: 8px;
-  margin-bottom: 12px;
+.auteur-texte {
+  font-size: 0.9rem;
+  max-width: 400px;
+  opacity: 0.9;
 }
 
 /* =========================
-   DESKTOP ONLY (image en background si tu veux plus tard)
+   DESKTOP
 ========================= */
-@media (min-width: 769px) {
-  body {
-    background: radial-gradient(circle at top, #111, #000);
+@media (min-width: 768px) {
+
+  .contenu {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+  }
+
+  .titre {
+    font-size: 1.9rem;
+  }
+
+  .description {
+    font-size: 1.05rem;
+  }
+
+  .auteur {
+    justify-content: center;
   }
 }
-.cta-bottom {
-  text-align: center;
-  margin: 28px 0 36px;
-}
-
-.cta-line {
-  display: inline-block;
-  padding: 12px 0;
-  color: var(--gold);
-  font-size: 16px;
-  letter-spacing: 1px;
-  text-decoration: none;
-  border-top: 1px solid var(--gold);
-  border-bottom: 1px solid var(--gold);
-  transition: all 0.3s ease;
-}
-
-.cta-line:hover {
-  opacity: 0.85;
-}
-
-
 </style>
 </head>
 
 <body>
 
-<!-- IMAGE -->
-<div class="hero">
-  <img src="livre-accueil.png" class="mobile-cover" alt="Rencontres au Clair de Lune">
-</div>
+<div class="page">
 
-<!-- TEXTE -->
-<div class="contenu">
+  <!-- IMAGE LIVRE -->
+  <img src="livre-accueil.png" alt="Rencontres au Clair de Lune" class="livre-image">
 
-  <div class="lang">
-    <a href="livre-accueil-en.html">EN</a>
-  </div>
+  <!-- TEXTE -->
+  <section class="contenu">
+    <div class="ligne"></div>
 
-  <p>Quand tout se tait, quelque chose commence…</p>
+    <h1 class="titre">Rencontres au Clair de Lune</h1>
 
-  <p>Il y a des silences qui parlent.</p>
-
-  <p><em>Rencontres au Clair de Lune</em> est né de cette écoute.</p>
-
-  <p>Ce livre a été écrit pour ressentir.</p>
-
-<div class="cta-bottom">
-  <a href="livre.html" class="cta-line">
-    Découvrir mon livre
-  </a>
-</div>
-
-
-
-  <div class="author">
-    <h3>L’auteur</h3>
-    <img src="auteur-pic.png" alt="Simon Lero">
-    <p>
-      Je crois aux rencontres qui n’arrivent qu’une<br>
-      fois. À celles qui nous transforment.
+    <p class="description">
+      Un roman intimiste où le temps, la mémoire et l’amour se croisent
+      sous la lumière fragile de la lune.
     </p>
-  </div>
+
+    <a href="#" class="cta">Découvrir mon livre</a>
+
+    <div class="ligne"></div>
+  </section>
+
+  <!-- AUTEUR -->
+  <section class="auteur">
+    <img src="auteur.jpg" alt="Simon Lero">
+    <div class="auteur-texte">
+      Simon Lero est l’auteur de <em>Rencontres au Clair de Lune</em>,
+      un récit sensible né d’une longue maturation littéraire.
+    </div>
+  </section>
 
 </div>
 

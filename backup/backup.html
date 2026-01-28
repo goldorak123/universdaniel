@@ -1,230 +1,188 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rencontres au Clair de Lune – Simon Lero</title>
+<meta name="description" content="Rencontres au Clair de Lune, roman poétique de Simon Lero.">
+<link rel="canonical" href="https://simonlero.com/livre-accueil.html">
 
 <style>
+/* =========================
+   BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-body{
-  margin:0;
-  background:#000;
-  font-family: Roboto, sans-serif;
-  color:#d6cbb6;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+  color: #f0f0f0;
+}
+
+/* =========================
+   HERO IMAGE
+========================= */
+.hero {
+  width: 100%;
+}
+
+.mobile-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* =========================
+   CONTENT
+========================= */
+.contenu {
+  padding: 24px;
+}
+
+.contenu p {
+  margin-bottom: 16px;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+/* =========================
+   LANGUAGE
+========================= */
+.lang {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.lang a {
+  color: #c9a24d;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ======================
+   CTA
+====================== */
+
+.cta-bottom {
+  text-align: center;
+  margin: 18px 0 26px; /* espace réduit entre image et texte */
+}
+
+.cta-bottom a {
+  display: inline-block;
+  padding: 10px 0;
+  color: #c9a24d;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-decoration: none;
+
+  border-top: 1px solid #c9a24d;
+  border-bottom: 1px solid #c9a24d;
+
+  transition: opacity 0.3s ease;
+}
+
+.cta-bottom a:hover {
+  opacity: 0.85;
 }
 
 
 
-html, body{
-  width:100%;
-  overflow-x:hidden;
-}
-
-.wrapper{
-  position:relative;
-  max-width:1200px;
-  margin:0 auto;
-}
-
-/* IMAGE DE FOND (TITRE DÉJÀ INTÉGRÉ) */
-.wrapper img.bg{
-  width:100%;
-  display:block;
-}
-
-/* LANGUE */
-.lang{
-  position:absolute;
-  top:4%;
-  right:4%;
-  font-size:20px;
-  letter-spacing:1px;
-}
-.lang a{
-  color:#f5f1e8;
-  text-decoration:none;
-  opacity:0.85;
-}
-
-/* TEXTE PRINCIPAL — ZONE MÉDIANE SOMBRE */
-.text-main{
-  position:absolute;
-  top:43%;
-  left:6%;
-  width:42%;
-  font-size:24px;
-  line-height:1.65;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.45);
-
-}
-.text-main p{
-  margin:0 0 14px 0;
-}
-.text-main em{
-  font-style:italic;
-}
-
-/* BOUTON — AVANT LA ZONE TASSE */
-.cta{
-  margin-top: 80px;
+/* =========================
+   AUTHOR
+========================= */
+.author {
+  margin-top: 24px;
+  text-align: left;
 }
 
 
-.cta a{
-  display:inline-block;
-  background:#e6d3a3;
-  color:#1a1a1a;
-  padding:12px 26px;
-  border-radius:6px;
-  text-decoration:none;
-  font-size:16px;
+.author h3 {
+  margin-bottom: 12px;
+  font-weight: normal;
+  color: #c9a24d;
 }
 
-/* AUTEUR — ALIGNÉ AVEC LE LIVRE EMPILÉ */
-.author{
-  position:absolute;
-  top:49%;
-  right:7%;
-  width:26%;
-  text-align:center;
-  font-size:20px;
-  line-height:1.6;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.45);
-
-}
-.author h3{
-  margin:0 0 12px 0;
-  font-size:13px;
-  letter-spacing:2px;
-  font-weight:normal;
-}
-.author img{
-  width:130px;
-  height:auto;
-  border-radius:0;      /* ← PLUS DE ROND */
-  background:none;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+.author img {
+  width: 140px;
+  border-radius: 8px;
+  margin-bottom: 12px;
 }
 
-.author p{
-  margin:0;
-  opacity:0.88;
-}
-
-/* MOBILE — ON EMPILE, PAS DE CHEVAUCHEMENT */
-@media (max-width:900px){
-
-  .text-main{
-    position: static;
-    width: 100%;
-    margin: 0;
-    padding: 26px 22px 20px 18px;
-    /*        ↑ droite plus large = plus de mots coupés */
-    font-size: 18px;
-    line-height: 1.6;
-    text-align: left;
-    box-sizing: border-box;
-    word-break: normal;
-    overflow-wrap: normal;
+/* =========================
+   DESKTOP ONLY (image en background si tu veux plus tard)
+========================= */
+@media (min-width: 769px) {
+  body {
+    background: radial-gradient(circle at top, #111, #000);
   }
-
-  .text-main p{
-    margin-bottom: 14px;
-  }
-
-  .text-main p:first-child{
-    font-size: 19px;
-    font-weight: 500;
-  }
-
-  .cta{
-    position: static;
-    margin: 26px 0 0 0;
-  }
-
-  .author{
-    position: static;
-    width: 100%;
-    margin: 32px 0 0 0;
-    padding: 12px 26px 40px 18px;
-    /*        ↑ droite PLUS LARGE → le mot « foi » ne coupe PLUS */
-    text-align: left;
-    font-size: 16px;
-    line-height: 1.55;
-    opacity: 0.95;
-    box-sizing: border-box;
-  }
-
-  .author h3{
-    margin-bottom: 10px;
-    font-size: 13px;
-    letter-spacing: 2px;
-  }
-
-  .author img{
-    display: block;
-    width: 110px;
-    margin: 0 0 14px 0;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-  }
-
-  .author p{
-    margin: 0;
-  }
-
 }
+.cta-bottom {
+  text-align: center;
+  margin: 28px 0 36px;
+}
+
+.cta-line {
+  display: inline-block;
+  padding: 12px 0;
+  color: var(--gold);
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  transition: all 0.3s ease;
+}
+
+.cta-line:hover {
+  opacity: 0.85;
+}
+
 
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
+<!-- IMAGE -->
+<div class="hero">
+  <img src="livre-accueil.png" class="mobile-cover" alt="Rencontres au Clair de Lune">
+</div>
 
-  <!-- IMAGE -->
-  <img class="bg" src="livre-accueil.png" alt="">
+<!-- TEXTE -->
+<div class="contenu">
 
-  <!-- LANGUE -->
   <div class="lang">
     <a href="livre-accueil-en.html">EN</a>
   </div>
 
-  <!-- TEXTE PRINCIPAL -->
-  <div class="text-main">
-    <p>Quand tout se tait, quelque chose commence...</p>
-</p>
-    <p>
-      Il y a des silences qui parlent. Des instants où la musique dit ce que les mots ne peuvent pas dire.
-    </p>
-    </p>
+  <p>Quand tout se tait, quelque chose commence…</p>
 
-    <p><em>Rencontres au Clair de Lune</em> est né de cette écoute.</p>
-</p>
-    <p>
-      D’une musique qui n’accompagne pas le monde, mais qui l’ouvre. En particulier, la <em>Sonate au clair de lune</em>.
-    </p>
-</p>
-    <p>
-      Avant l’histoire, il y a eu le silence. Avant les phrases, il y a eu les notes. Et dans cet espace suspendu, quelque chose a pris forme.
-    </p>
-</p>
-    <p>
-      Ce livre n’a pas été écrit pour expliquer. Il a été écrit pour ressentir. Pour laisser une trace, là où les mots hésitent.
-    </p>
-</p>
-    <div class="cta">
-      <a href="livre.html">Découvrir le livre</a>
-    </div>
-  </div>
+  <p>Il y a des silences qui parlent.</p>
 
-  <!-- AUTEUR -->
+  <p><em>Rencontres au Clair de Lune</em> est né de cette écoute.</p>
+
+  <p>Ce livre a été écrit pour ressentir.</p>
+
+<div class="cta-bottom">
+  <a href="livre.html" class="cta-line">
+    Découvrir mon livre
+  </a>
+</div>
+
+
+
   <div class="author">
     <h3>L’auteur</h3>
-    <img src="auteur-pic.png" alt="">
+    <img src="auteur-pic.png" alt="Simon Lero">
     <p>
       Je crois aux rencontres qui n’arrivent qu’une<br>
-      fois. À celles qui nous transforment, sans<br>
-      même que nous nous en rendions compte.
+      fois. À celles qui nous transforment.
     </p>
   </div>
 
@@ -232,3 +190,5 @@ html, body{
 
 </body>
 </html>
+
+

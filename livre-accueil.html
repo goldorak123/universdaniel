@@ -16,7 +16,6 @@
 <meta property="og:url" content="https://simonlero.com/livre-accueil.html">
 <meta property="og:image" content="https://simonlero.com/images/og-rencontres.png">
 
-
 <style>
 
 /* =========================
@@ -26,12 +25,13 @@ html, body{
   margin:0;
   padding:0;
   width:100%;
-  height:100%;
-  overflow:hidden; /* ← TUE LE SCROLL */
+  height:auto;
+  min-height:100%;
+  overflow-y:auto;
+  overflow-x:hidden;
   font-family: Roboto, sans-serif;
   background:#000;
   color:#f5f1e8;
-
 }
 
 /* =========================
@@ -40,10 +40,10 @@ html, body{
 .hero{
   position:relative;
   width:100vw;
-  height:100vh;
+  min-height:100vh;     /* ✅ au lieu de height:100vh */
+  height:auto;          /* ✅ permet au contenu d’allonger la page */
   background:url("livre-accueil-web.png") center center no-repeat;
   background-size: cover;
-
 }
 
 /* =========================
@@ -53,31 +53,28 @@ html, body{
   position:absolute;
   top:22px;
   right:28px;
-  font-size:22px;        /* ⬅️ GROS (≈ x10 du minuscule) */
+  font-size:22px;
   font-weight:500;
   letter-spacing:2px;
 }
 
-
 .lang a{
   color:#f5f1e8;
   text-decoration:none;
-  opacity:0.75;          /* visible mais doux */
+  opacity:0.75;
 }
 
 .lang a:hover{
   opacity:1;
 }
 
-
-
 /* =========================
-   TEXTE PRINCIPAL
+   TEXTE PRINCIPAL (WEB)
 ========================= */
 .content{
-  position:absolute;
-  top:44%;
-  left:6%;
+  position:relative;
+  padding-top:44vh;     /* ← pousse le texte SANS créer de trou noir */
+  margin-left:6%;
   width:38%;
   font-size:36px;
   line-height:1.7;
@@ -87,25 +84,53 @@ html, body{
     0 8px 22px rgba(0,0,0,0.85);
 }
 
+
 .content p{
   margin:0 0 24px 0;
 }
-
 
 .content em{
   font-style:italic;
 }
 
 /* =========================
-   AUTEUR
+   BOUTON (WEB)
+========================= */
+.cta-bottom{
+  position:relative;      /* ✅ au lieu de absolute */
+  margin:70px auto 80px auto;
+  width:fit-content;
+  z-index:30;
+}
+
+.cta-bottom a{
+  display:inline-block;
+  background:#e6d3a3;
+  color:#1a1a1a;
+  padding:28px 84px;
+  font-size:26px;
+  font-weight:500;
+  letter-spacing:1px;
+  text-decoration:none;
+  border-radius:18px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.6);
+  transition:all 0.3s ease;
+}
+
+.cta-bottom a:hover{
+  background:#f2ddb0;
+  transform:translateY(-3px);
+}
+
+/* =========================
+   AUTEUR (WEB)
 ========================= */
 .author{
-  position:absolute;
-  bottom:10%;
-  right:6%;
-  width:420px;                 /* ⬅️ x3 visuellement */
+  position:relative;      /* ✅ au lieu de absolute */
+  margin:0 6% 120px auto; /* pousse en bas, aligné à droite */
+  width:420px;
   text-align:center;
-  font-size:22px;              /* ⬅️ x3 */
+  font-size:22px;
   line-height:1.65;
   color:#f5f1e8;
   letter-spacing:0.3px;
@@ -114,28 +139,22 @@ html, body{
     0 10px 28px rgba(0,0,0,0.85);
 }
 
-
-
 .author h3{
   margin:0 0 16px 0;
-  font-size:18px;              /* ⬅️ x3 */
+  font-size:18px;
   letter-spacing:3px;
   font-weight:500;
   opacity:0.95;
 }
 
-
-
 .author img{
-  width:260px;                 /* ⬅️ x3 */
+  width:260px;
   margin-bottom:18px;
   border-radius:12px;
   box-shadow:
     0 0 0 4px rgba(255,255,255,0.18),
     0 12px 32px rgba(0,0,0,0.6);
 }
-
-
 
 .author p{
   margin:0;
@@ -154,6 +173,7 @@ html, body{
   .hero{
     background:url("livre-accueil.png") center top no-repeat;
     background-size:cover;
+    min-height:auto;
     height:auto;
     padding-bottom:40px;
   }
@@ -162,15 +182,29 @@ html, body{
   .author{
     position:static;
     width:auto;
+    margin:0;
     padding:22px;
     text-align:left;
   }
 
   .content{
-  font-size:19px;
-  line-height:1.65;
-}
+    font-size:19px;
+    line-height:1.65;
+  }
 
+  .cta-bottom{
+    position:static;
+    margin:18px 22px 26px 22px;
+    width:auto;
+  }
+
+  .cta-bottom a{
+    display:block;
+    text-align:center;
+    padding:18px 22px;
+    font-size:18px;
+    border-radius:14px;
+  }
 
   .author{
     font-size:15px;
@@ -179,35 +213,6 @@ html, body{
   .author img{
     width:120px;
   }
-}
-/* =========================
-   BOUTON BAS CENTRAL
-========================= */
-.cta-bottom{
-  position:absolute;
-  bottom:10%;                 /* ajuste 9% / 11% si tu veux */
-  left:50%;
-  transform:translateX(-50%);
-  z-index:30;
-}
-
-.cta-bottom a{
-  display:inline-block;
-  background:#e6d3a3;
-  color:#1a1a1a;
-  padding:28px 84px;          /* GROS */
-  font-size:26px;
-  font-weight:500;
-  letter-spacing:1px;
-  text-decoration:none;
-  border-radius:18px;
-  box-shadow:0 20px 50px rgba(0,0,0,0.6);
-  transition:all 0.3s ease;
-}
-
-.cta-bottom a:hover{
-  background:#f2ddb0;
-  transform:translateY(-3px);
 }
 
 </style>
@@ -258,7 +263,6 @@ html, body{
     </p>
   </div>
 
-  <!-- BOUTON EN BAS, CENTRÉ, ENTRE LIVRES ET TASSE -->
   <div class="cta-bottom">
     <a href="livre.html">Découvrir le livre</a>
   </div>
@@ -275,5 +279,4 @@ html, body{
 </div>
 
 </body>
-
 </html>

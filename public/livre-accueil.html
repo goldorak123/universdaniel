@@ -10,419 +10,144 @@
 
 <style>
 /* =========================
-   BASE — ZÉRO SCROLL
+   BASE
 ========================= */
-html, body {
+* {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
   background: #000;
-  color: #f5f1e8;
-  font-family: Roboto, sans-serif;
-}
-
-/* anti micro-scroll (arrondis) */
-body { position: fixed; inset: 0; }
-
-/* =========================
-   VIEWPORT CENTRÉ
-========================= */
-.viewport {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: #f0f0f0;
 }
 
 /* =========================
-   HERO – DESKTOP / TABLETTE
+   HERO IMAGE
 ========================= */
 .hero {
-  position: relative;
-  width: 1920px;
-  height: 1080px;
-  background: url("livre-accueil-web.png") center center no-repeat;
-  background-size: cover;
-  transform-origin: center center;
+  width: 100%;
 }
 
-/* Auto-scale moderne */
-@supports (scale: 1) {
-  .hero {
-    scale: min(100vw / 1920, 100vh / 1080);
-    transform: none;
-  }
-}
-
-/* Fallback anciens navigateurs */
-@supports not (scale: 1) {
-  .hero {
-    transform: scale(calc(min(100vw / 1920, 100vh / 1080)));
-  }
+.mobile-cover {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* =========================
-   HERO – MOBILE
+   CONTENT
 ========================= */
-@media (max-width: 768px) {
+.contenu {
+  padding: 24px;
+}
 
+.contenu p {
+  margin-bottom: 16px;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+/* =========================
+   LANGUAGE
+========================= */
+.lang {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.lang a {
+  color: #c9a24d;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* =========================
+   CTA
+========================= */
+.cta-bottom {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.cta-bottom a {
+  display: inline-block;
+  padding: 12px 26px;
+  border: 1px solid #c9a24d;
+  color: #c9a24d;
+  text-decoration: none;
+  border-radius: 25px;
+}
+
+/* =========================
+   AUTHOR
+========================= */
+.author {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.author h3 {
+  margin-bottom: 12px;
+  font-weight: normal;
+  color: #c9a24d;
+}
+
+.author img {
+  width: 140px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* =========================
+   DESKTOP ONLY (image en background si tu veux plus tard)
+========================= */
+@media (min-width: 769px) {
   body {
-    overflow-y: auto;
-  }
-
-  .hero {
-    background: none !important;
-    width: 100%;
-    height: auto;
-    transform: none !important;
-    scale: 1 !important;
-    padding: 0;
-  }
-
-  /* Image mobile */
-  .mobile-cover {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  /* Contenu sous l’image */
-  .contenu {
-    position: static;
-    padding: 20px;
+    background: radial-gradient(circle at top, #111, #000);
   }
 }
-@media (max-width: 768px) {
-
-  /* FORCER TOUT LE TEXTE EN FLUX NORMAL */
-  .hero .texte,
-  .hero .description,
-  .hero p,
-  .hero h1,
-  .hero h2,
-  .hero h3 {
-    position: static !important;
-  }
-
-  /* ÉVITER QUE LE TEXTE SE COLLE À L’IMAGE */
-  .contenu {
-    margin-top: 20px;
-  }
-}
-@media (max-width: 768px) {
-
-  /* TEXTE INTRO : SORT DE L’IMAGE */
-  .hero .intro,
-  .hero .citation,
-  .hero .texte,
-  .hero p {
-    position: static !important;
-    color: #fff;
-  }
-
-  /* L’IMAGE MOBILE DOIT ÊTRE SEULE DANS LE HERO */
-  .hero {
-    display: block;
-  }
-}
-
-
-
-
-/* =========================
-   LANGUE
-========================= */
-.lang {
-  position: absolute;
-  top: 22px;
-  right: 28px;
-  font-size: 22px;
-  z-index: 10;
-}
-
-.lang a {
-  color: #f5f1e8;
-  text-decoration: none;
-}
-
-/* =========================
-   TEXTE GAUCHE
-========================= */
-.content {
-  position: absolute;
-  top: 52%;
-  left: 6%;
-  width: 42%;
-  transform: translateY(-50%);
-  font-size: 26px;
-  line-height: 1.7;
-  text-shadow: 0 3px 10px rgba(0,0,0,0.9);
-}
-
-.content p { margin: 0 0 18px 0; }
-
-/* =========================
-   BOUTON
-========================= */
-.cta-bottom {
-  position: absolute;
-  bottom: 12%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.cta-bottom a {
-  background: #e6d3a3;
-  color: #1a1a1a;
-  padding: 22px 72px;   /* ⬅️ –20 % */
-  font-size: 22px;      /* ⬅️ –20 % */
-  text-decoration: none;
-  border-radius: 14px;  /* ⬅️ –20 % */
-}
-
-
-/* =========================
-   AUTEUR
-========================= */
-.author {
-  position: absolute;
-  bottom: 10%;
-  right: 3%;
-  width: 300px;          /* ⬅️ –20 % */
-  text-align: center;
-  font-size: 17px;       /* ⬅️ –20 % */
-  line-height: 1.55;
-}
-
-.author h3 {
-  font-size: 14px;       /* ⬅️ –20 % */
-  letter-spacing: 2px;
-}
-
-.author img {
-  width: 190px;          /* ⬅️ –20 % */
-  border-radius: 10px;
-}
-
-
 </style>
 </head>
 
 <body>
-  <div class="viewport">
-    <div class="hero">
-  <img src="livre-accueil.png" class="mobile-cover" alt="">
-  <!-- le reste de ton contenu ici -->
 
+<!-- IMAGE -->
+<div class="hero">
+  <img src="livre-accueil.png" class="mobile-cover" alt="Rencontres au Clair de Lune">
+</div>
 
-      <div class="lang">
-        <a href="livre-accueil-en.html">EN</a>
-      </div>
+<!-- TEXTE -->
+<div class="contenu">
 
-      <div class="content">
-        <p>Quand tout se tait, quelque chose commence...</p>
-        <p>Il y a des silences qui parlent.</p>
-        <p><em>Rencontres au Clair de Lune</em> est né de cette écoute.</p>
-        <p>Ce livre a été écrit pour ressentir.</p>
-      </div>
-
-      <div class="cta-bottom">
-        <a href="livre.html">Découvrir le livre</a>
-      </div>
-
-      <div class="author">
-        <h3>L’auteur</h3>
-        <img src="auteur-pic.png" alt="Auteur">
-        <p>
-          Je crois aux rencontres qui n’arrivent qu’une fois.<br>
-          À celles qui nous transforment.
-        </p>
-      </div>
-
-    </div>
+  <div class="lang">
+    <a href="livre-accueil-en.html">EN</a>
   </div>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rencontres au Clair de Lune – Simon Lero</title>
-<meta name="description" content="Rencontres au Clair de Lune, roman poétique de Simon Lero.">
-<link rel="canonical" href="https://simonlero.com/livre-accueil.html">
+  <p>Quand tout se tait, quelque chose commence…</p>
 
-<style>
-/* =========================
-   BASE — ZÉRO SCROLL
-========================= */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #000;
-  color: #f5f1e8;
-  font-family: Roboto, sans-serif;
-}
+  <p>Il y a des silences qui parlent.</p>
 
-/* anti micro-scroll (arrondis) */
-body { position: fixed; inset: 0; }
+  <p><em>Rencontres au Clair de Lune</em> est né de cette écoute.</p>
 
-/* =========================
-   VIEWPORT CENTRÉ
-========================= */
-.viewport {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  <p>Ce livre a été écrit pour ressentir.</p>
 
-/* =========================
-   HERO — TAILLE RÉFÉRENCE
-========================= */
-.hero {
-  position: relative;
-  width: 1920px;
-  height: 1080px;
-  background: url("livre-accueil-web.png") center center no-repeat;
-  background-size: cover;
-  transform-origin: center center;
-
-  /* fallback transform (au cas où scale CSS pas supporté) */
-  transform: scale(1);
-}
-
-/* AUTO-SCALE MODERNE */
-@supports (scale: 1) {
-  .hero {
-    scale: min(100vw / 1920, 100vh / 1080);
-    transform: none;
-  }
-}
-
-/* FALLBACK TRANSFORM (si scale non supporté) */
-@supports not (scale: 1) {
-  .hero {
-    transform: scale(calc(min(100vw / 1920, 100vh / 1080)));
-  }
-}
-
-/* =========================
-   LANGUE
-========================= */
-.lang {
-  position: absolute;
-  top: 22px;
-  right: 28px;
-  font-size: 22px;
-  z-index: 10;
-}
-
-.lang a {
-  color: #f5f1e8;
-  text-decoration: none;
-}
-
-/* =========================
-   TEXTE GAUCHE
-========================= */
-.content {
-  position: absolute;
-  top: 52%;
-  left: 6%;
-  width: 42%;
-  transform: translateY(-50%);
-  font-size: 26px;
-  line-height: 1.7;
-  text-shadow: 0 3px 10px rgba(0,0,0,0.9);
-}
-
-.content p { margin: 0 0 18px 0; }
-
-/* =========================
-   BOUTON
-========================= */
-.cta-bottom {
-  position: absolute;
-  bottom: 12%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.cta-bottom a {
-  background: #e6d3a3;
-  color: #1a1a1a;
-  padding: 22px 72px;   /* ⬅️ –20 % */
-  font-size: 22px;      /* ⬅️ –20 % */
-  text-decoration: none;
-  border-radius: 14px;  /* ⬅️ –20 % */
-}
-
-
-/* =========================
-   AUTEUR
-========================= */
-.author {
-  position: absolute;
-  bottom: 10%;
-  right: 3%;
-  width: 300px;          /* ⬅️ –20 % */
-  text-align: center;
-  font-size: 17px;       /* ⬅️ –20 % */
-  line-height: 1.55;
-}
-
-.author h3 {
-  font-size: 14px;       /* ⬅️ –20 % */
-  letter-spacing: 2px;
-}
-
-.author img {
-  width: 190px;          /* ⬅️ –20 % */
-  border-radius: 10px;
-}
-
-
-</style>
-</head>
-
-<body>
-  <div class="viewport">
-    <div class="hero">
-
-      <div class="lang">
-        <a href="livre-accueil-en.html">EN</a>
-      </div>
-
-      <div class="content">
-        <p>Quand tout se tait, quelque chose commence...</p>
-        <p>Il y a des silences qui parlent.</p>
-        <p><em>Rencontres au Clair de Lune</em> est né de cette écoute.</p>
-        <p>Ce livre a été écrit pour ressentir.</p>
-      </div>
-
-      <div class="cta-bottom">
-        <a href="livre.html">Découvrir le livre</a>
-      </div>
-
-      <div class="author">
-        <h3>L’auteur</h3>
-        <img src="auteur-pic.png" alt="Auteur">
-        <p>
-          Je crois aux rencontres qui n’arrivent qu’une fois.<br>
-          À celles qui nous transforment.
-        </p>
-      </div>
-
-    </div>
+  <div class="cta-bottom">
+    <a href="livre.html">Découvrir le livre</a>
   </div>
+
+  <div class="author">
+    <h3>L’auteur</h3>
+    <img src="auteur-pic.png" alt="Simon Lero">
+    <p>
+      Je crois aux rencontres qui n’arrivent qu’une fois.<br>
+      À celles qui nous transforment.
+    </p>
+  </div>
+
+</div>
+
 </body>
 </html>

@@ -6,44 +6,44 @@
 
 <title>Rencontres au Clair de Lune – Simon Lero</title>
 
-<meta name="description" content="Rencontres au Clair de Lune, roman poétique de Simon Lero. Une œuvre sur le silence, la mémoire, la musique et les rencontres qui transforment une vie.">
+<meta name="description" content="Rencontres au Clair de Lune, roman poétique de Simon Lero.">
 
 <link rel="canonical" href="https://simonlero.com/livre-accueil.html">
-
-<meta property="og:type" content="book">
-<meta property="og:title" content="Rencontres au Clair de Lune – Simon Lero">
-<meta property="og:description" content="Un roman poétique signé Simon Lero. Quand tout se tait, quelque chose commence.">
-<meta property="og:url" content="https://simonlero.com/livre-accueil.html">
-<meta property="og:image" content="https://simonlero.com/images/og-rencontres.png">
 
 <style>
 
 /* =========================
-   BASE
+   BASE – UNE SEULE FOIS
 ========================= */
 html, body{
   margin:0;
   padding:0;
   width:100%;
-  height:auto;
-  min-height:100%;
-  overflow-y:auto;
-  overflow-x:hidden;
+  height:100%;
+  overflow:hidden;              /* AUCUN SCROLL */
   font-family: Roboto, sans-serif;
   background:#000;
   color:#f5f1e8;
 }
 
 /* =========================
-   HERO (WEB)
+   HERO
 ========================= */
 .hero{
   position:relative;
   width:100vw;
-  min-height:100vh;     /* ✅ au lieu de height:100vh */
-  height:auto;          /* ✅ permet au contenu d’allonger la page */
+  height:100vh;
   background:url("livre-accueil-web.png") center center no-repeat;
-  background-size: cover;
+  background-size:cover;
+  overflow:hidden;
+}
+
+/* ⬇️ RÉDUCTION GLOBALE (LA CLÉ) */
+.hero-inner{
+  position:absolute;
+  inset:0;
+  transform:scale(0.78);        /* ⬅️ RÉDUCTION ~22% */
+  transform-origin:center top;
 }
 
 /* =========================
@@ -54,111 +54,71 @@ html, body{
   top:22px;
   right:28px;
   font-size:22px;
-  font-weight:500;
-  letter-spacing:2px;
 }
 
 .lang a{
   color:#f5f1e8;
   text-decoration:none;
-  opacity:0.75;
-}
-
-.lang a:hover{
-  opacity:1;
 }
 
 /* =========================
-   TEXTE PRINCIPAL (WEB)
+   TEXTE GAUCHE
 ========================= */
 .content{
-  position:relative;
-  padding-top:44vh;     /* ← pousse le texte SANS créer de trou noir */
-  margin-left:6%;
-  width:38%;
-  font-size:36px;
+  position:absolute;
+  top:52%;
+  left:6%;
+  width:42%;
+  transform:translateY(-50%);
+  font-size:26px;
   line-height:1.7;
-  letter-spacing:0.3px;
-  text-shadow:
-    0 2px 6px rgba(0,0,0,0.95),
-    0 8px 22px rgba(0,0,0,0.85);
+  text-shadow:0 3px 10px rgba(0,0,0,0.9);
 }
-
 
 .content p{
-  margin:0 0 24px 0;
-}
-
-.content em{
-  font-style:italic;
+  margin:0 0 18px 0;
 }
 
 /* =========================
-   BOUTON (WEB)
+   BOUTON
 ========================= */
 .cta-bottom{
-  position:relative;      /* ✅ au lieu de absolute */
-  margin:70px auto 80px auto;
-  width:fit-content;
-  z-index:30;
+  position:absolute;
+  bottom:12%;
+  left:50%;
+  transform:translateX(-50%);
 }
 
 .cta-bottom a{
-  display:inline-block;
   background:#e6d3a3;
   color:#1a1a1a;
-  padding:28px 84px;
-  font-size:26px;
-  font-weight:500;
-  letter-spacing:1px;
+  padding:28px 90px;
+  font-size:28px;
   text-decoration:none;
   border-radius:18px;
-  box-shadow:0 20px 50px rgba(0,0,0,0.6);
-  transition:all 0.3s ease;
-}
-
-.cta-bottom a:hover{
-  background:#f2ddb0;
-  transform:translateY(-3px);
 }
 
 /* =========================
-   AUTEUR (WEB)
+   AUTEUR
 ========================= */
 .author{
-  position:relative;      /* ✅ au lieu de absolute */
-  margin:0 6% 120px auto; /* pousse en bas, aligné à droite */
-  width:420px;
+  position:absolute;
+  bottom:10%;
+  right:6%;
+  width:480px;
   text-align:center;
-  font-size:22px;
+  font-size:26px;
   line-height:1.65;
-  color:#f5f1e8;
-  letter-spacing:0.3px;
-  text-shadow:
-    0 3px 8px rgba(0,0,0,0.95),
-    0 10px 28px rgba(0,0,0,0.85);
 }
 
 .author h3{
-  margin:0 0 16px 0;
-  font-size:18px;
+  font-size:22px;
   letter-spacing:3px;
-  font-weight:500;
-  opacity:0.95;
 }
 
 .author img{
-  width:260px;
-  margin-bottom:18px;
-  border-radius:12px;
-  box-shadow:
-    0 0 0 4px rgba(255,255,255,0.18),
-    0 12px 32px rgba(0,0,0,0.6);
-}
-
-.author p{
-  margin:0;
-  opacity:0.9;
+  width:300px;
+  border-radius:14px;
 }
 
 /* =========================
@@ -171,111 +131,63 @@ html, body{
   }
 
   .hero{
+    height:auto;
     background:url("livre-accueil.png") center top no-repeat;
     background-size:cover;
-    min-height:auto;
-    height:auto;
-    padding-bottom:40px;
+  }
+
+  .hero-inner{
+    transform:none;
+    position:static;
   }
 
   .content,
   .author{
     position:static;
     width:auto;
-    margin:0;
     padding:22px;
-    text-align:left;
-  }
-
-  .content{
-    font-size:19px;
-    line-height:1.65;
   }
 
   .cta-bottom{
     position:static;
-    margin:18px 22px 26px 22px;
-    width:auto;
-  }
-
-  .cta-bottom a{
-    display:block;
+    margin:30px auto;
     text-align:center;
-    padding:18px 22px;
-    font-size:18px;
-    border-radius:14px;
-  }
-
-  .author{
-    font-size:15px;
-  }
-
-  .author img{
-    width:120px;
   }
 }
 
 </style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Book",
-  "name": "Rencontres au Clair de Lune",
-  "author": {
-    "@type": "Person",
-    "name": "Simon Lero"
-  },
-  "description": "Roman poétique explorant le silence, la mémoire et la musique.",
-  "inLanguage": "fr",
-  "url": "https://simonlero.com/livre-accueil.html"
-}
-</script>
-
 </head>
 
 <body>
 
 <div class="hero">
+  <div class="hero-inner">
 
-  <div class="lang">
-    <a href="livre-accueil-en.html">EN</a>
+    <div class="lang">
+      <a href="livre-accueil-en.html">EN</a>
+    </div>
+
+    <div class="content">
+      <p>Quand tout se tait, quelque chose commence...</p>
+      <p>Il y a des silences qui parlent.</p>
+      <p><em>Rencontres au Clair de Lune</em> est né de cette écoute.</p>
+      <p>Ce livre a été écrit pour ressentir.</p>
+    </div>
+
+    <div class="cta-bottom">
+      <a href="livre.html">Découvrir le livre</a>
+    </div>
+
+    <div class="author">
+      <h3>L’auteur</h3>
+      <img src="auteur-pic.png" alt="Auteur">
+      <p>
+        Je crois aux rencontres qui n’arrivent qu’une fois.<br>
+        À celles qui nous transforment.
+      </p>
+    </div>
+
   </div>
-
-  <div class="content">
-    <p>Quand tout se tait, quelque chose commence...</p>
-
-    <p>
-      Il y a des silences qui parlent. Des instants où la musique dit ce que les mots ne peuvent pas dire.
-    </p>
-
-    <p><em>Rencontres au Clair de Lune</em> est né de cette écoute.</p>
-
-    <p>
-      D’une musique qui n’accompagne pas le monde, mais qui l’ouvre.
-      En particulier, la <em>Sonate au clair de lune</em>.
-    </p>
-
-    <p>
-      Ce livre n’a pas été écrit pour expliquer.
-      Il a été écrit pour ressentir.
-      Pour laisser une trace, là où les mots hésitent.
-    </p>
-  </div>
-
-  <div class="cta-bottom">
-    <a href="livre.html">Découvrir le livre</a>
-  </div>
-
-  <div class="author">
-    <h3>L’auteur</h3>
-    <img src="auteur-pic.png" alt="Auteur">
-    <p>
-      Je crois aux rencontres qui n’arrivent qu’une fois.<br>
-      À celles qui nous transforment, sans même que nous nous en rendions compte.
-    </p>
-  </div>
-
 </div>
 
 </body>

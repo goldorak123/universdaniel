@@ -68,6 +68,41 @@ body { position: fixed; inset: 0; }
 }
 
 /* =========================
+   FIX MOBILE LIVRE
+========================= */
+@media (max-width: 768px) {
+
+  .hero {
+    transform: none !important;
+    scale: 1 !important;
+    background-size: cover;
+    background-position: center top;
+  }
+
+  .hero * {
+    position: relative !important;
+  }
+
+  .auteur,
+  .photo-auteur,
+  img {
+    display: block;
+    max-width: 85%;
+    margin: 20px auto;
+  }
+
+  .texte,
+  .description,
+  p {
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+}
+
+
+/* =========================
    LANGUE
 ========================= */
 .lang {

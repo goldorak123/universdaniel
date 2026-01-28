@@ -68,18 +68,26 @@ body {
    CTA
 ========================= */
 .cta-bottom {
-  margin: 30px 0;
   text-align: center;
+  margin: 22px 0 28px; /* espace image ↔ texte réduit */
 }
 
 .cta-bottom a {
   display: inline-block;
-  padding: 12px 26px;
-  border: 1px solid #c9a24d;
+  padding: 12px 0;
   color: #c9a24d;
+  font-size: 16px;
+  letter-spacing: 1px;
   text-decoration: none;
-  border-radius: 25px;
+  border-top: 1px solid #c9a24d;
+  border-bottom: 1px solid #c9a24d;
+  transition: opacity 0.3s ease;
 }
+
+.cta-bottom a:hover {
+  opacity: 0.85;
+}
+
 
 /* =========================
    AUTHOR

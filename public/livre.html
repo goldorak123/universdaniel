@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Découvrir mon livre</title>
+
+<style>
+
+/* =========================
+   VARIABLES
+========================= */
+:root {
+  --gold: #c9a24d;
+  --text: #e8e6e3;
+  --paper: #e6ddb3;
+}
+
+/* =========================
+   TITRES – RESET MARGES H1
+========================= */
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 12px; /* ← réduit fortement l’espace */
+}
+
+/* =========================
+   SUMMARY (FR / EN spacing)
+========================= */
+
+.summary-block {
+  margin-top: 120px;
+}
+
+.summary-title {
+  margin-bottom: 32px;
+}
+
+/* =====================
+   BOUTONS ACHAT – côte à côte
+===================== */
+.buy-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin: 120px auto;
+}
+
+@media (max-width: 768px) {
+  .buy-buttons {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+/* =====================
+   BASE
+===================== */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  color:var(--text);
+  background:
+  radial-gradient(
+    1200px 600px at 50% 15%,
+    rgba(255,255,255,0.06),
+    transparent 60%
+  ),
+  url("fond-livre.png") no-repeat center top;
+
+  background-size: cover;
+  text-align:center;
+  overflow-x:hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+
+/* =========================
+   CONTENEUR
+========================= */
+.container{
+  max-width:980px;
+  margin:90px auto 90px;
+  padding:0 24px;
+}
+
+/* =========================
+   TITRE
+========================= */
+h1{
+  font-size:54px;
+  color:var(--gold);
+  margin-bottom:6px;
+  text-shadow:0 3px 12px rgba(0,0,0,0.65);
+  text-align: center;
+}
+
+
+
+/* =========================
+   NOTE (GENÈSE)
+========================= */
+.note-wrap{
+  position: relative;
+  max-width: 640px;        /* ← note pincée */
+  margin: 40px auto 100px; /* ← centrée correctement */
+}
+
+.note-pin{
+  position: absolute;
+  top: -1px;              /* ← punaise descendue */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at 30% 30%, #ffb3b3, #b40000);
+  border-radius: 50%;
+  box-shadow:
+    inset -2px -2px 4px rgba(0,0,0,0.35),
+    0 4px 8px rgba(0,0,0,0.45);
+  z-index: 10;
+}
+
+.note-paper{
+  background:
+    linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0)),
+    var(--paper);
+  color:#3a2f16;
+  padding:36px 42px;
+  line-height:1.75;
+  font-size:16.5px;
+  text-align: justify;   /* ← AJOUT ICI (desktop) */
+  border-radius:6px;
+  box-shadow:
+    0 14px 32px rgba(0,0,0,0.38),
+    inset 0 0 18px rgba(0,0,0,0.08);
+  transform: none;
+}
+
+
+
+
+/* =========================
+   LIVRE + HALO
+========================= */
+.book-shadow{
+  position:relative;
+  display:inline-block;
+  margin:50px auto 95px;
+}
+
+.book-cover{
+  width:460px;
+  max-width:95%;
+  border-radius:14px;
+  display:block;
+  margin:0 auto;
+  transform: rotate(-3deg);
+  box-shadow:0 22px 55px rgba(0,0,0,0.6);
+  transition:transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.book-cover:hover{
+  transform: translateY(-10px) rotate(0deg) scale(1.08);
+  box-shadow:
+    0 32px 75px rgba(0,0,0,0.65),
+    0 0 55px rgba(201,162,77,0.6),
+    0 0 110px rgba(201,162,77,0.3);
+}
+
+/* =========================
+   TEXTE
+========================= */
+p{
+  font-size:18px;
+  line-height:1.7;
+  max-width:820px;
+  margin:0 auto 38px;
+  text-align:left;
+
+  /* FIX NETTETÉ TEXTE (mobile surtout) */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.45);
+}
+
+
+/* =========================
+   BOUTONS — STYLE FINAL
+========================= */
+.buy-buttons{
+  margin-top:80px;
+}
+
+.buy-link{
+  display:inline-block;
+  margin:22px 0;
+  padding:18px 6px;
+  text-decoration:none;
+  font-size:clamp(18px,2vw,26px);
+  letter-spacing:0.05em;
+  color:#d8b25a;
+  border-top:1px solid rgba(216,178,90,0.45);
+  border-bottom:1px solid rgba(216,178,90,0.35);
+}
+
+.buy-link:hover{
+  opacity:0.85;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer{
+  margin-top:90px;
+  font-size:14px;
+  color:#cfc8b8;
+  line-height:1.6;
+}
+/* CONTENEUR PRINCIPAL */
+.book-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* TEXTE */
+.book-text {
+  color: #eaeaea;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* BOUTONS */
+.buy-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+
+/* LIENS */
+.buy-link {
+  display: inline-flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #d4af37;
+  border-top: 1px solid rgba(212,175,55,0.5);
+  border-bottom: 1px solid rgba(212,175,55,0.5);
+  padding: 14px 0;
+  width: fit-content;
+}
+
+.buy-link span:first-child {
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.buy-link span:last-child {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* =========================
+   VIDEOS – SHADOW & ROTATION (FINAL)
+========================= */
+
+/* Vidéo – état repos (sobre) */
+.video-promo video {
+  width: 100%;
+  max-height: 420px;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 0 22px 55px rgba(0,0,0,0.6);
+  transition: box-shadow 0.4s ease;
+}
+
+/* Halo doré au survol (desktop uniquement) */
+.video-promo:hover video {
+  box-shadow:
+    0 32px 75px rgba(0,0,0,0.7),
+    0 0 55px rgba(201,162,77,0.6);
+}
+
+/* Shadow pendant lecture */
+.video-promo.playing video {
+  box-shadow:
+    0 26px 65px rgba(0,0,0,0.65),
+    0 0 38px rgba(201,162,77,0.35);
+}
+
+/* =========================
+   VIDEOS – ROTATION VIA CONTENEUR
+========================= */
+
+.video-promo {
+  transition: transform 0.6s ease;
+}
+
+/* Hover = redressement PRIORITAIRE */
+.video-promo.tilt-left:hover,
+.video-promo.tilt-right:hover {
+  transform: rotate(0deg);
+}
+
+
+
+.video-promo.tilt-left {
+  transform: rotate(-6deg);
+}
+
+.video-promo.tilt-right {
+  transform: rotate(6deg);
+}
+
+.video-promo.playing {
+  transform: rotate(0deg);
+}
+
+/* =========================
+   WRAPPER – ESPACEMENT
+========================= */
+
+.videos-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 115px;              /* espace sûr pour ±6° */
+  margin: 100px 0 140px;
+}
+
+.videos-wrapper .video-promo {
+  margin: 0;
+  max-width: 420px;
+}
+
+
+
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width:768px){
+
+  h1{font-size:34px;}
+  p{font-size:17px;}
+
+  /* Boutons achat sur 2 lignes */
+  .print-link,
+  .button,
+  .buy-link {
+    display: block;
+    margin: 28px auto;
+    padding: 22px 12px;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .print-link span,
+  .button span,
+  .buy-link span {
+    display: block;
+  }
+
+  .print-link span:first-child,
+  .button span:first-child,
+  .buy-link span:first-child {
+    font-size: 18px;
+    letter-spacing: 0.08em;
+  }
+
+  .print-link span:last-child,
+  .button span:last-child,
+  .buy-link span:last-child {
+    margin-top: 6px;
+    font-size: 14px;
+    opacity: 0.9;
+  }
+
+ .video-promo video {
+  max-height: 260px;
+}
+
+.video-title {
+  margin-top: 28px;
+  margin-bottom: 20px;
+}
+  .videos-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  /* FIX titre anglais trop gros sur mobile */
+h1 + div {
+  font-size: 16px !important;
+  letter-spacing: 0.18em;
+  margin-bottom: 24px;
+}
+
+}
+/* FIX BOUTONS ACHAT – sécurité */
+@media (max-width: 768px) {
+
+  .buy-buttons {
+    gap: 22px;          /* ← rapproche les 2 boutons */
+    margin-top: 32px;  /* ← rapproche du texte au-dessus */
+    margin-bottom: 24px; /* ← rapproche du footer */
+  }
+
+}
+
+
+.buy-buttons .buy-link {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+}
+
+.books-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;   /* ← petit upgrade */
+  gap: 40px;
+  margin: 40px 0 20px;
+}
+
+@media (max-width: 768px) {
+  .books-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+}
+/* =========================
+   MOBILE – fond noir net + textes lisibles
+========================= */
+@media (max-width: 768px) {
+
+  body{
+  background: #050505 !important;
+    background-image: none !important;
+  }
+
+  /* NOTE – toujours droite + texte non justifié sur mobile */
+  .note-paper{
+    transform: rotate(0deg);
+    text-align: left;
+  }
+
+  /* TITRE RÉSUMÉ */
+  .summary-title{
+    font-size: 18px;
+    margin: 70px auto 36px;
+    letter-spacing: 0.14em;
+  }
+
+  /* TEXTE RÉSUMÉ – mobile lisible */
+  .summary-block p{
+    font-size: 17px;
+    text-align: left;
+  }
+
+}
+
+
+
+
+/* =========================
+   VIDEOS – ROTATION VIA CONTENEUR (FIABLE)
+========================= */
+
+.video-promo {
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.video-promo.tilt-left {
+  transform: rotate(-4deg);
+}
+
+.video-promo.tilt-right {
+  transform: rotate(4deg);
+}
+
+.video-promo.playing {
+  transform: rotate(0deg);
+}
+/* =========================
+   MOBILE – VIDEOS TOUJOURS DROITES
+========================= */
+@media (max-width: 768px) {
+
+  .video-promo,
+  .video-promo.tilt-left,
+  .video-promo.tilt-right,
+  .video-promo.playing {
+    transform: rotate(0deg) !important;
+  }
+
+}
+
+/* shadow premium conservé */
+.video-promo video {
+  box-shadow:
+    0 28px 70px rgba(0,0,0,0.65),
+    0 0 55px rgba(201,162,77,0.45);
+}
+.video-title {
+  margin-top: -14px;      /* remonte le titre */
+  margin-bottom: 36px;    /* espace avec la vidéo */
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  color: #c9a24d;
+  opacity: 0.9;
+  text-align: center;
+}
+/* =========================
+   TITRES RÉSUMÉ / SUMMARY
+========================= */
+
+.summary-title {
+  margin: 90px auto 48px;
+  font-size: 22px;              /* plus gros */
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #d8b25a;               /* or plus clair */
+  text-align: center;
+
+  text-shadow:
+    0 1px 2px rgba(0,0,0,0.6),
+    0 0 18px rgba(216,178,90,0.25);
+}
+/* Texte résumé – lisibilité améliorée */
+.summary-block p {
+  color: rgba(232,230,227,0.92);
+  font-size: 19px;
+  line-height: 1.75;
+  text-align: justify;   /* ← AJOUT ICI */
+}
+@media (max-width: 768px) {
+  .summary-block p {
+    text-align: left;
+  }
+}
+
+.note-line{
+  height: 2px;
+  width: 260px;
+  margin: 32px auto 22px;
+  background-color: #3a2f16;
+  opacity: 0.45;
+  border-radius: 1px;
+  display: block;
+}
+
+@media (max-width: 768px){
+  .note-line{
+    width: min(260px, 70%);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Découvrir mon livre</h1>
+<div style="
+  text-align:center;
+  font-size:28px;
+  font-weight:500;
+  letter-spacing:0.12em;
+  color: rgba(255,255,255,0.78);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+  margin-top:4px;
+  margin-bottom:16px;
+">
+  DISCOVER MY BOOK
+</div>
+
+  <div class="note-wrap">
+    <div class="note-pin"></div>
+
+    <div class="note-paper">
+
+      <div style="font-weight:700; font-size:18px; letter-spacing:0.04em; margin-bottom:18px;">
+        Genèse de l’ouvrage
+      </div>
+
+      <em>Rencontres au Clair de Lune</em> a vu le jour en 2007, au terme de neuf mois d’écriture, dans le prolongement d’une longue pause professionnelle consacrée au repos et au recul.<br><br>
+
+      Ce temps suspendu a offert à l’auteur l’occasion de revenir à l’essentiel, laissant émerger une écriture intérieure, patiente, attentive aux silences, et profondément humaine.<br><br>
+
+      L’œuvre est publiée sous le nom de plume <strong>Simon Lero</strong>, choisi en hommage à un ancêtre français venu s’établir en Amérique, inscrivant ainsi ce récit dans une mémoire à la fois intime et transmise.<br><br>
+
+   <div class="note-line"></div>
+
+
+
+
+
+
+       
+      <div style="text-align:center; font-size:14px; opacity:0.7; margin:18px 0;">
+        — English version —
+      </div>
+
+      <div style="font-weight:700; font-size:18px; letter-spacing:0.04em; margin-bottom:18px;">
+        Genesis of the Work
+      </div>
+
+      <em>Encounters by Moonlight</em> came into being in 2007, after nine months of writing, during a period that followed a long professional pause devoted to rest and reflection.<br><br>
+
+      This suspended time allowed the author to return to what is essential, giving rise to an inward, patient form of writing—attentive to silence and deeply human.<br><br>
+
+      The work is published under the pen name <strong>Simon Lero</strong>, chosen in tribute to a French ancestor who settled in America, anchoring this narrative in a memory both personal and inherited.
+
+    </div>
+  </div>
+
+ <div class="videos-wrapper videos-top">
+
+  <!-- VIDEO FR -->
+  <div class="video-promo tilt-left">
+    <div class="video-title">Voir ma vidéo promotionnelle</div>
+
+    <video class="video-card"
+           controls
+           preload="metadata"
+           poster="couverture-livre.png">
+      <source src="video-promo-fr.mp4" type="video/mp4">
+      Votre navigateur ne supporte pas la lecture vidéo.
+    </video>
+  </div>
+
+  <!-- VIDEO EN -->
+  <div class="video-promo tilt-right">
+    <div class="video-title">Watch the promotional video</div>
+
+    <video class="video-card"
+           controls
+           preload="metadata"
+           poster="couverture-livre-en.png">
+      <source src="video-promo-en.mp4" type="video/mp4">
+      Your browser does not support video playback.
+    </video>
+  </div>
+
+</div>
+
+<div class="summary-wrapper">
+
+  <div class="summary-block">
+    <div class="summary-title">Résumé — Français</div>
+
+<p>
+Alfred Sisley, vieillard aguerri et habité par la mélancolie, vit seul entouré de ses
+souvenirs. Retranché du monde, il attend en silence un signe — celui de son unique et
+véritable amour. Impuissant face au temps qui s’effrite, il tente de surmonter ses peines,
+de contenir ses rêves récurrents et d’apaiser ses écrits déchirants, vestiges d’une vie
+intérieure toujours en éveil.
+<br><br>
+La rencontre avec Joey bouleverse cet équilibre fragile. En lui, Sisley reconnaît le reflet
+de ses trente ans : une résonance intime, une unité profonde, une synergie inattendue.
+À travers la musique — qui agit comme un écho vibrant de son passé — Sisley rouvre les
+portes de sa mémoire. Il confie alors à Joey son histoire, fragment après fragment, dans
+l’espoir de retrouver ce qui lui manque depuis si longtemps.
+<br><br>
+Entre silences partagés et confidences murmurées, leur relation devient un espace suspendu
+où le passé et le présent se rejoignent. Chaque note, chaque regard, chaque mot ravive une
+présence enfouie. Sisley comprend peu à peu que certaines rencontres ne viennent pas combler
+une absence, mais lui donner enfin un sens.
+</p>
+
+  </div>
+
+<div class="summary-block">
+  <div class="summary-title">Summary – English</div>
+
+  <p>
+    Alfred Sisley, a hardened old man steeped in melancholy, lives alone, surrounded by his memories.
+    Withdrawn from the world, he waits in silence for a sign — that of his one true and lasting love.
+    Powerless against the erosion of time, he tries to overcome his sorrows, to contain his recurring dreams,
+    and to soothe his searing writings, remnants of an inner life forever awake.
+    <br><br>
+    The encounter with Joey disrupts this fragile balance. In him, Sisley recognizes the reflection of his
+    own thirty years: an intimate resonance, a deep unity, an unexpected synergy. Through music — which acts
+    as a vibrant echo of his past — Sisley reopens the doors of his memory. He then entrusts Joey with his
+    story, fragment by fragment, in the hope of rediscovering what he has been missing for so long.
+    <br><br>
+    Between shared silences and whispered confidences, their relationship becomes a suspended space where
+    past and present converge. Each note, each glance, each word rekindles a buried presence. Sisley gradually
+    understands that some encounters are not meant to fill an absence, but to finally give it meaning.
+  </p>
+</div>
+
+
+<div class="buy-buttons">
+
+<a class="buy-link" href="https://kgcbu0-cw.myshopify.com/" target="_blank" rel="noopener noreferrer">
+  <span>ACHETER LE LIVRE</span>
+  <span>VERSION PAPIER</span>
+  <span style="font-size:13px; opacity:0.7; margin-top:6px;">
+    Buy the book · Paperback
+  </span>
+</a>
+
+
+ <a class="buy-link" href="https://kgcbu0-cw.myshopify.com/" target="_blank" rel="noopener noreferrer">
+  <span>ACHETER LE LIVRE</span>
+  <span>VERSION E-BOOK</span>
+  <span style="font-size:13px; opacity:0.7; margin-top:6px;">
+    Buy the book · eBook
+  </span>
+</a>
+
+</div>
+
+<div style="text-align:center; margin:80px 0 6px;">
+  <a href="https://mon-univers.ca"
+     style="
+       font-size:14px;
+       letter-spacing:0.12em;
+       color:#c9a24d;
+       opacity:0.7;
+       text-decoration:none;
+     ">
+    Découvrir l’univers de l’auteur
+  </a>
+</div>
+
+<div style="text-align:center; margin-top:2px;">
+  <span style="
+    font-size:11px;
+    letter-spacing:0.14em;
+    color:#c9a24d;
+    opacity:0.6;
+  ">
+    French edition only
+  </span>
+</div>
+
+
+
+
+
+<footer>
+© 2026 — Tous droits réservés<br>
+Toute reproduction ou adaptation est interdite sans autorisation écrite.
+</footer>
+
+</div>
+<script>
+  document.querySelectorAll('.video-promo').forEach(wrapper => {
+    const video = wrapper.querySelector('video');
+
+    video.addEventListener('play', () => {
+      wrapper.classList.add('playing');
+    });
+
+    video.addEventListener('pause', () => {
+      wrapper.classList.remove('playing');
+    });
+
+    video.addEventListener('ended', () => {
+      wrapper.classList.remove('playing');
+      video.currentTime = 0;   // ← retour au début
+      video.load();            // ← réaffiche le poster
+    });
+  });
+</script>
+
+
+
+</body>
+</html>

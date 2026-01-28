@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon entreprise – Univers Daniel</title>
+
+<style>
+:root{
+    --gold:#d4a23a;
+}
+
+/* ================= BASE ================= */
+body{
+    margin:0;
+    padding:20px;
+    font-family:Arial, sans-serif;
+    color:#111;
+    text-align:center;
+    overflow-x:hidden;
+
+    /* FILIGRANE + VOILE */
+    background-color:#e9e9e9;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.32), rgba(255,255,255,0.32)),
+      url("fond-entreprise-filigrane.png");
+
+    background-repeat:repeat;
+    background-position:top center;
+    background-size:1200px auto;
+}
+
+
+/* ================= TITRE PRINCIPAL ================= */
+.titre-principal{
+    color:var(--gold);
+    font-size:92px;
+    font-weight:800;
+    letter-spacing:0.6px;
+    margin:60px 0 12px;
+    text-align:center;
+    text-shadow:
+        0 3px 6px rgba(0,0,0,0.45),
+        0 10px 22px rgba(0,0,0,0.35);
+}
+
+.subtitle{
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:40px;
+    color:rgba(0,0,0,0.65);
+}
+
+/* ================= SECTION ================= */
+.section{
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ================= TEXTE ================= */
+.section p{
+    position:relative;
+    max-width:900px;
+    margin:0 auto 80px;
+    font-size:18px;
+    line-height:1.7;
+    text-align:left;
+    background:rgba(255,255,255,0.45);
+    padding:36px 32px 30px;
+    border-radius:14px;
+    box-shadow:0 8px 22px rgba(0,0,0,0.15);
+}
+
+/* ===== PUNAISE ===== */
+.section p::before{
+    content:"";
+    position:absolute;
+    top:-8px;
+    left:50%;
+    transform:translateX(-50%);
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    background:
+        radial-gradient(circle at 30% 28%, #ff9a9a, #c41616 70%);
+    box-shadow:
+        0 6px 14px rgba(0,0,0,0.45),
+        inset 0 3px 4px rgba(255,255,255,0.6),
+        inset 0 -4px 6px rgba(0,0,0,0.35);
+}
+
+.section p::after{
+    content:"";
+    position:absolute;
+    top:4px;
+    left:50%;
+    transform:translateX(-50%);
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:radial-gradient(circle,#eee,#777);
+    box-shadow:inset 0 1px 2px rgba(0,0,0,0.6);
+}
+
+/* ================= GALERIE ================= */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    column-gap:50px;
+    row-gap:60px;
+}
+
+.entreprise-img{
+    width:100%;
+    border-radius:12px;
+    border:2px solid rgba(0,0,0,0.2);
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    transition:transform 0.35s ease;
+}
+
+/* mosaïque */
+.gallery img:nth-child(3n+1){grid-column:1/span 3;}
+.gallery img:nth-child(3n+2){grid-column:4/span 3;}
+.gallery img:nth-child(3n){grid-column:2/span 4;}
+
+/* scrapbook desktop */
+@media(min-width:1024px){
+    .gallery img:nth-of-type(odd){transform:rotate(-1.5deg) translateX(-16px);}
+    .gallery img:nth-of-type(even){transform:rotate(1.6deg) translateX(16px);}
+    .gallery img:hover{
+        transform:rotate(0deg) scale(1.06);
+        z-index:5;
+    }
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+    .titre-principal{
+        font-size:40px;
+        margin-top:85px;
+    }
+
+    .subtitle{font-size:16px;}
+    .section p{font-size:17px;margin-bottom:45px;}
+    .gallery{display:block;}
+
+    .entreprise-img:nth-child(odd){transform:rotate(-1deg);}
+    .entreprise-img:nth-child(even){transform:rotate(1deg);}
+    .entreprise-img{margin-bottom:35px;}
+}
+
+/* ================= FOOTER ================= */
+footer{
+    margin:90px auto 40px;
+    max-width:900px;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<h1 class="titre-principal">Mon entreprise</h1>
+<p class="subtitle">– Un pan de ma vie –</p>
+
+<div class="section">
+
+<p>
+Pendant douze années, cette entreprise a été bien plus qu’un travail :
+elle a rythmé mes journées, mes choix, mes inquiétudes comme mes espoirs.<br><br>
+
+Derrière chaque espace, chaque outil, il y a des souvenirs faits d’engagement total,
+de fatigue parfois, mais aussi de responsabilités assumées.<br><br>
+
+À son apogée, cette entreprise comptait jusqu’à vingt-cinq employés.
+Aujourd’hui, même si elle n’existe plus, elle demeure une part vivante de mon histoire :
+une expérience humaine intense, exigeante et profondément formatrice.
+</p>
+
+<div class="gallery">
+  <img src="entreprise-1.jpg"  class="entreprise-img">
+  <img src="entreprise-2.jpg"  class="entreprise-img">
+  <img src="entreprise-3.jpg"  class="entreprise-img">
+  <img src="entreprise-4.jpg"  class="entreprise-img">
+  <img src="entreprise-5.jpg"  class="entreprise-img">
+  <img src="entreprise-6.jpg"  class="entreprise-img">
+  <img src="entreprise-7.jpg"  class="entreprise-img">
+  <img src="entreprise-8.jpg"  class="entreprise-img">
+  <img src="entreprise-9.jpg"  class="entreprise-img">
+  <img src="entreprise-10.jpg" class="entreprise-img">
+  <img src="entreprise-11.jpg" class="entreprise-img">
+  <img src="entreprise-12.jpg" class="entreprise-img">
+  <img src="entreprise-13.jpg" class="entreprise-img">
+  <img src="entreprise-14.jpg" class="entreprise-img">
+  <img src="entreprise-15.jpg" class="entreprise-img">
+  <img src="entreprise-16.jpg" class="entreprise-img">
+</div>
+
+</div>
+
+<footer>
+© 2026 – <strong>Tous droits réservés</strong>
+</footer>
+
+</body>
+</html>

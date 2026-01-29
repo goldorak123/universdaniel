@@ -74,10 +74,12 @@ body {
 
 /* LANG */
 .lang {
-  position: absolute;
-  top: 20px;
-  right: 24px;
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 10;
 }
+
 
 .lang a {
   color: var(--gold);
@@ -120,20 +122,27 @@ body {
   }
 
   .hero {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
+    overflow: hidden;
   }
 
   .hero-img {
-    object-position: center top; /* évite titre coupé */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%; /* ✅ dézoome légèrement le haut (titre visible) */
+    display: block;
   }
 
   .overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 140px;              /* ✅ texte remonté */
     align-items: center;
     text-align: center;
     padding: 0 20px;
-    bottom: 120px; /* 🔑 ajuste ici si tu veux + ou - haut */
-    top: auto;
   }
 
   .overlay p {
@@ -148,6 +157,7 @@ body {
     margin-top: 14px;
   }
 }
+
 </style>
 </head>
 

@@ -32,7 +32,9 @@ body {
   overflow: hidden;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 .hero {
   position: relative;
   width: 100%;
@@ -51,21 +53,22 @@ body {
 .hero-img {
   width: 100%;
   height: 100%;
-   object-fit: cover;
+  object-fit: cover;
   object-position: center;
-  background: #000;
 }
 
-/* OVERLAY TEXTE */
+/* =========================
+   OVERLAY TEXTE
+========================= */
 .overlay {
   position: absolute;
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;   /* ⬅️ TEXTE EN BAS */
-  align-items: flex-start;     /* ⬅️ À GAUCHE */
-  text-align: left;
-  padding: 0 8vw 12vh;         /* ⬅️ ZONE SÛRE SOUS LE TITRE */
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 8%;
+  padding-top: 56vh; /* POSITION WEB VALIDÉE */
   background: rgba(0,0,0,0.25);
 }
 
@@ -85,86 +88,52 @@ body {
 /* TEXTE */
 .overlay p {
   margin-bottom: 12px;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.6;
-  max-width: 520px;
+  max-width: 620px;
 }
-
-/* GRAND DESKTOP */
-@media (min-width: 1024px) {
-  .overlay p {
-    max-width: 620px;
-  }
-}
-
 
 /* CTA */
 .cta-line {
-  margin-top: 26px;
+  margin-top: 28px;
   display: inline-block;
   padding: 6px 0;
   color: var(--gold);
-  font-size: 17px;
+  font-size: 19px;
   letter-spacing: 1px;
   text-decoration: none;
   border-top: 1px solid var(--gold);
   border-bottom: 1px solid var(--gold);
-
 }
 
 .cta-line:hover {
   opacity: 0.85;
 }
-/* DESKTOP */
-@media (min-width: 769px) {
-  .overlay {
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding-left: 8%;
-    padding-top: 56vh;   /* ← 50 % moins */
-  }
-
-  .overlay p {
-    font-size: 20px;
-    line-height: 1.6;
-    max-width: none;
-  }
-
-  .cta-line {
-    font-size: 19px;
-    margin-top: 28px;
-  }
-}
-
-
 
 /* =========================
-   MOBILE – STABLE
+   MOBILE – FINAL STABLE
 ========================= */
 @media (max-width: 768px) {
 
   body {
-    overflow-x: hidden; /* sécurité */
+    overflow-x: hidden;
   }
 
   .hero {
-    padding-left: 14px;
-    padding-right: 14px;
+    width: 100%;
+    height: 100vh;
   }
 
   .hero-img {
-    object-fit: cover;
-    object-position: center center;
+    object-position: center top; /* évite titre coupé */
   }
 
   .overlay {
     align-items: center;
     text-align: center;
     padding: 0 20px;
-    position: absolute;
-    bottom: 150px;   /* ajuste ici si besoin */
-    left: 0;
-    right: 0;
+    bottom: 120px; /* 🔑 ajuste ici si tu veux + ou - haut */
+    top: auto;
   }
 
   .overlay p {
@@ -179,11 +148,6 @@ body {
     margin-top: 14px;
   }
 }
-
-
-
-
-
 </style>
 </head>
 
@@ -204,24 +168,23 @@ body {
       <a href="livre-accueil-en.html">EN</a>
     </div>
 
-   <p>Quand tout se tait, quelque chose commence…</p>
+    <p>Quand tout se tait, quelque chose commence…</p>
 
-<p>
-La musique s’élève doucement, comme un souffle
-<span class="nowrap">dans le silence</span>
-</p>
+    <p>
+      La musique s’élève doucement, comme un souffle<br>
+      dans le silence
+    </p>
 
-<p>
-Elle accompagne une rencontre inattendue, suspendue
-<span class="nowrap">entre l’ombre et la lumière</span>
-</p>
+    <p>
+      Elle accompagne une rencontre inattendue, suspendue<br>
+      entre l’ombre et la lumière
+    </p>
 
-<p><em>Un récit où les mots laissent une trace</em></p>
+    <p><em>Un récit où les mots laissent une trace</em></p>
 
-<a href="livre.html" class="cta-line">
-  Découvrir mon livre / Acheter
-</a>
-
+    <a href="livre.html" class="cta-line">
+      Découvrir mon livre / Acheter
+    </a>
 
   </div>
 </div>

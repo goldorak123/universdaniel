@@ -138,35 +138,36 @@ body {
 
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 768px) {
+
+  .hero-img {
+    object-fit: cover;
+    object-position: center top; /* 🔑 évite de couper le titre */
+  }
+
   .overlay {
     align-items: center;
     text-align: center;
-    padding: 0 24px 14vh;
+    padding: 0 20px;
+    padding-top: 58vh; /* 🔽 descend le texte sans scroll */
   }
 
   .overlay p {
-    font-size: 15px;
-    line-height: 1.6;
-    max-width: 100%;     /* OK pour mobile */
+    font-size: 14.5px;      /* 🔽 texte plus fin */
+    line-height: 1.45;      /* 🔽 texte plus serré */
+    margin-bottom: 8px;     /* 🔽 resserre les blocs */
+    max-width: 100%;
   }
 
   .cta-line {
-    font-size: 15px;
+    font-size: 15px;        /* bouton un peu plus chic */
+    margin-top: 18px;       /* remonte automatiquement */
   }
 }
 
-@media (max-width: 768px) {
-  .overlay p {
-    font-size: 16px;   /* ↓ texte mobile légèrement réduit */
-    line-height: 1.55;
-  }
-
-  .cta-line {
-    font-size: 16px;   /* bouton cohérent avec le texte */
-  }
-}
 
 </style>
 </head>

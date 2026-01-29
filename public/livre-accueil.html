@@ -13,7 +13,9 @@
   --gold: #c9a24d;
 }
 
-/* RESET */
+/* =========================
+   RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
@@ -22,20 +24,17 @@
 
 html, body {
   width: 100%;
-  height: 100%;
-  overflow: hidden; /* bloque le scroll et le buzz */
+  margin: 0;
 }
-
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: #000;
   color: #f0f0f0;
-  overflow: hidden;
 }
 
 /* =========================
-   HERO
+   HERO DESKTOP
 ========================= */
 .hero {
   position: relative;
@@ -54,13 +53,14 @@ body {
 /* IMAGE */
 .hero-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;          /* ← RESTAURÉ */
-  object-position: center;    /* ← RESTAURÉ */
+  height: auto;
+  min-height: 100vh;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* =========================
-   OVERLAY TEXTE
+   OVERLAY TEXTE – DESKTOP
 ========================= */
 .overlay {
   position: absolute;
@@ -70,22 +70,8 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   padding-left: 8%;
-  padding-top: 56vh; /* desktop validé */
+  padding-top: 56vh;
   background: rgba(0,0,0,0.25);
-}
-
-/* LANG */
-.lang {
-  position: fixed;
-  top: 18px;
-  right: 18px;
-  z-index: 50;
-}
-
-.lang a {
-  color: var(--gold);
-  text-decoration: none;
-  font-weight: bold;
 }
 
 /* TEXTE */
@@ -113,6 +99,20 @@ body {
   opacity: 0.85;
 }
 
+/* LANG */
+.lang {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 100;
+}
+
+.lang a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: bold;
+}
+
 /* =========================
    MOBILE – VERSION SAINE
 ========================= */
@@ -124,7 +124,7 @@ body {
 
   .hero {
     width: 100vw;
-    height: 100svh; /* FIXE le viewport mobile */
+    height: 100svh;
   }
 
   .hero-img {
@@ -133,15 +133,12 @@ body {
     object-fit: cover;
     object-position: center 42%;
   }
-}
-
-
 
   .overlay {
-    position: absolute;
     left: 0;
     right: 0;
     bottom: 120px;
+    top: auto;
     padding: 0 20px;
     align-items: center;
     text-align: center;
@@ -154,10 +151,8 @@ body {
     line-height: 1.4;
     margin-bottom: 6px;
     max-width: 100%;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.85);
   }
-.overlay p {
-  text-shadow: 0 1px 4px rgba(0,0,0,0.85);
-}
 
   .cta-line {
     font-size: 15px;
@@ -165,10 +160,8 @@ body {
   }
 
   .lang {
-    position: fixed;
     top: 16px;
     right: 16px;
-    z-index: 100;
   }
 }
 </style>

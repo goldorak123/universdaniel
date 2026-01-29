@@ -143,9 +143,18 @@ body {
 ========================= */
 @media (max-width: 768px) {
 
+  body {
+    overflow-x: hidden; /* sécurité */
+  }
+
+  .hero {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
   .hero-img {
     object-fit: cover;
-    object-position: center center; /* 🔒 image figée */
+    object-position: center center;
   }
 
   .overlay {
@@ -153,7 +162,7 @@ body {
     text-align: center;
     padding: 0 20px;
     position: absolute;
-    bottom: 110px; /* ✅ TEXTE ANCRÉ AU BAS */
+    bottom: 150px;   /* ajuste ici si besoin */
     left: 0;
     right: 0;
   }
@@ -170,6 +179,7 @@ body {
     margin-top: 14px;
   }
 }
+
 
 
 

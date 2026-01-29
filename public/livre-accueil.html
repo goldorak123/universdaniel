@@ -139,34 +139,38 @@ body {
 
 
 /* =========================
-   MOBILE
+   MOBILE – STABLE
 ========================= */
 @media (max-width: 768px) {
 
   .hero-img {
     object-fit: cover;
-    object-position: center top; /* évite de couper le titre */
+    object-position: center center; /* 🔒 image figée */
   }
 
   .overlay {
     align-items: center;
     text-align: center;
     padding: 0 20px;
-    margin-top: 110px; /* ✅ POSITION MOBILE STABLE */
+    position: absolute;
+    bottom: 110px; /* ✅ TEXTE ANCRÉ AU BAS */
+    left: 0;
+    right: 0;
   }
 
   .overlay p {
-    font-size: 14.5px;   /* texte plus fin */
-    line-height: 1.4;    /* plus serré */
-    margin-bottom: 6px;  /* resserre les blocs */
+    font-size: 14.5px;
+    line-height: 1.4;
+    margin-bottom: 6px;
     max-width: 100%;
   }
 
   .cta-line {
     font-size: 15px;
-    margin-top: 14px; /* bouton remonte */
+    margin-top: 14px;
   }
 }
+
 
 
 

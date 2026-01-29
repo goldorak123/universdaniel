@@ -39,7 +39,6 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: #000; /* absorbe l’espace libre */
   overflow: hidden;
 }
 
@@ -50,12 +49,12 @@ body {
   display: block;
 }
 
-/* IMAGE — JAMAIS COUPÉE */
+/* IMAGE */
 .hero-img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* ← CLÉ ABSOLUE */
-  object-position: center;
+  object-fit: cover;          /* ← RESTAURÉ */
+  object-position: center;    /* ← RESTAURÉ */
 }
 
 /* =========================
@@ -66,21 +65,19 @@ body {
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  padding-bottom: 145px;
-  padding-left: 20px;
-  padding-right: 20px;
-  text-align: center;
-  background: none;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 8%;
+  padding-top: 56vh; /* desktop validé */
+  background: rgba(0,0,0,0.25);
 }
 
 /* LANG */
 .lang {
   position: fixed;
-  top: 16px;
-  right: 16px;
-  z-index: 100;
+  top: 18px;
+  right: 18px;
+  z-index: 50;
 }
 
 .lang a {
@@ -91,19 +88,19 @@ body {
 
 /* TEXTE */
 .overlay p {
-  margin-bottom: 6px;
-  font-size: 14.5px;
-  line-height: 1.4;
-  max-width: 100%;
+  margin-bottom: 12px;
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 620px;
 }
 
 /* CTA */
 .cta-line {
-  margin-top: 14px;
+  margin-top: 28px;
   display: inline-block;
   padding: 6px 0;
   color: var(--gold);
-  font-size: 15px;
+  font-size: 19px;
   letter-spacing: 1px;
   text-decoration: none;
   border-top: 1px solid var(--gold);
@@ -112,6 +109,59 @@ body {
 
 .cta-line:hover {
   opacity: 0.85;
+}
+
+/* =========================
+   MOBILE – VERSION SAINE
+========================= */
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .hero {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* ← PAS DE RÉDUCTION */
+    object-position: center;  /* ← PAS DE DÉCALAGE */
+  }
+
+  .overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 145px;
+    padding: 0 20px;
+    align-items: center;
+    text-align: center;
+    justify-content: flex-end;
+    background: none;
+  }
+
+  .overlay p {
+    font-size: 14.5px;
+    line-height: 1.4;
+    margin-bottom: 6px;
+    max-width: 100%;
+  }
+
+  .cta-line {
+    font-size: 15px;
+    margin-top: 14px;
+  }
+
+  .lang {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+  }
 }
 </style>
 </head>

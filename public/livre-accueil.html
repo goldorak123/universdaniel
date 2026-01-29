@@ -39,6 +39,7 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
+  background: #000; /* absorbe l’espace libre */
   overflow: hidden;
 }
 
@@ -49,11 +50,11 @@ body {
   display: block;
 }
 
-/* IMAGE */
+/* IMAGE — JAMAIS COUPÉE */
 .hero-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* ← CLÉ ABSOLUE */
   object-position: center;
 }
 
@@ -65,19 +66,21 @@ body {
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding-left: 8%;
-  padding-top: 56vh; /* POSITION WEB VALIDÉE */
-  background: rgba(0,0,0,0.25);
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 145px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  background: none;
 }
 
 /* LANG */
 .lang {
   position: fixed;
-  top: 18px;
-  right: 18px;
-  z-index: 50;
+  top: 16px;
+  right: 16px;
+  z-index: 100;
 }
 
 .lang a {
@@ -88,19 +91,19 @@ body {
 
 /* TEXTE */
 .overlay p {
-  margin-bottom: 12px;
-  font-size: 20px;
-  line-height: 1.6;
-  max-width: 620px;
+  margin-bottom: 6px;
+  font-size: 14.5px;
+  line-height: 1.4;
+  max-width: 100%;
 }
 
 /* CTA */
 .cta-line {
-  margin-top: 28px;
+  margin-top: 14px;
   display: inline-block;
   padding: 6px 0;
   color: var(--gold);
-  font-size: 19px;
+  font-size: 15px;
   letter-spacing: 1px;
   text-decoration: none;
   border-top: 1px solid var(--gold);
@@ -109,68 +112,6 @@ body {
 
 .cta-line:hover {
   opacity: 0.85;
-}
-
-/* =========================
-   MOBILE – FINAL UNIQUE
-========================= */
-@media (max-width: 768px) {
-
-  body {
-    overflow-x: hidden;
-  }
-
-  .hero {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  /* IMAGE MOBILE – respiration pour le titre */
- .hero-img {
-  width: 100%;
-  height: 95vh;
-  object-fit: cover;
-  object-position: center 45%;
-  transform: scale(0.96);   /* ← clé absolue */
-  transform-origin: center;
-}
-
-
-
-
-  /* OVERLAY MOBILE – TEXTE EN BAS */
-  .overlay {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 145px;              /* ↓ texte descendu */
-    padding: 0 20px;
-    align-items: center;
-    text-align: center;
-    justify-content: flex-end; /* sécurité anti chevauchement */
-    background: none;
-  }
-
-  .overlay p {
-    font-size: 14.5px;
-    line-height: 1.4;
-    margin-bottom: 6px;
-    max-width: 100%;
-  }
-
-  .cta-line {
-    font-size: 15px;
-    margin-top: 14px;
-  }
-
-  /* LANGUE */
-  .lang {
-    position: fixed;
-    top: 16px;
-    right: 16px;
-    z-index: 100;
-  }
 }
 </style>
 </head>
@@ -193,18 +134,9 @@ body {
     </div>
 
     <p>Quand tout se tait, quelque chose commence…</p>
-
-   <p>
-  La musique s’élève doucement, comme un souffle dans le silence
-</p>
-
-<p>
-  Elle accompagne une rencontre inattendue, suspendue entre l’ombre et la lumière
-</p>
-
-
+    <p>La musique s’élève doucement, comme un souffle dans le silence</p>
+    <p>Elle accompagne une rencontre inattendue, suspendue entre l’ombre et la lumière</p>
     <p><strong>Un récit où les mots laissent une trace</strong></p>
-
 
     <a href="livre.html" class="cta-line">
       Découvrir mon livre / Acheter

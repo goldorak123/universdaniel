@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Encounters by Moonlight – Simon Lero</title>
+<meta name="description" content="Encounters by Moonlight, a poetic novel by Simon Lero.">
+<link rel="canonical" href="https://simonlero.com/livre-accueil-en.html">
+
+
+<style>
+:root {
+  --gold: #c9a24d;
+}
+
+/* =========================
+   RESET GLOBAL
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+  color: #f0f0f0;
+  overflow: hidden;
+}
+
+/* =========================
+   HERO — WEB (DESKTOP)
+========================= */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero picture,
+.hero img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* =========================
+   OVERLAY TEXTE — WEB
+========================= */
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: 8%;
+  padding-top: 56vh;
+  background: rgba(0,0,0,0.25);
+}
+
+.overlay p {
+  margin-bottom: 12px;
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 620px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+
+/* CTA — WEB + MOBILE */
+.cta-line {
+  margin-top: 28px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 0;
+  color: var(--gold);
+  font-size: 19px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+}
+
+.cta-line:hover {
+  opacity: 0.85;
+}
+
+/* CTA — 2e ligne */
+.cta-sub {
+  font-size: 12px;
+  letter-spacing: 0.8px;
+  opacity: 0.8;
+}
+
+/* LANG — COMMUN */
+.lang {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 100;
+}
+
+.lang a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+/* ======================================================
+   MOBILE — TOUT EST ICI / RIEN AILLEURS
+====================================================== */
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .hero {
+    width: 100vw;
+    height: 100svh;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 48%;
+  }
+
+  .overlay {
+    top: auto;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    padding: 0 20px;
+    align-items: center;
+    text-align: center;
+    justify-content: flex-end;
+    background: none;
+  }
+
+  .overlay p {
+    font-size: 14.5px;
+    line-height: 1.4;
+    margin-bottom: 6px;
+    max-width: 100%;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.85);
+  }
+
+  .cta-line {
+    font-size: 15px;
+    margin-top: 24px;
+  }
+
+  .lang {
+    top: 16px;
+    right: 16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+
+ <picture>
+  <source srcset="fond-livre-accueil-web.png" media="(min-width: 769px)">
+  <img src="livre-accueil.png"
+       alt="Encounters by Moonlight"
+       class="hero-img">
+</picture>
+
+
+  <div class="overlay">
+
+    <div class="lang">
+      <a href="livre-accueil-en.html">FR</a>
+    </div>
+
+   <p>When everything falls silent, something begins…</p>
+<p>Music rises gently, like a breath in the quiet.</p>
+<p>It accompanies an unexpected encounter, suspended between shadow and light.</p>
+<p>A story where words leave a lasting trace.</p>
+
+   <a href="livre.html" class="cta-line">
+  <strong>Discover the book / Buy</strong>
+  <span class="cta-sub">Promo video</span>
+</a>
+
+
+
+  </div>
+</div>
+
+</body>
+</html>

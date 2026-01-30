@@ -35,7 +35,7 @@ body {
 }
 
 /* =========================
-   HERO — WEB (DESKTOP)
+   HERO
 ========================= */
 .hero {
   position: relative;
@@ -59,7 +59,7 @@ body {
 }
 
 /* =========================
-   OVERLAY TEXTE — WEB
+   OVERLAY TEXTE
 ========================= */
 .overlay {
   position: absolute;
@@ -81,10 +81,18 @@ body {
   text-shadow: 0 1px 4px rgba(0,0,0,0.6);
 }
 
+/* =========================
+   CTA — CENTRÉ EN BAS
+========================= */
+.cta-wrapper {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+}
 
-/* CTA — WEB + MOBILE */
 .cta-line {
-  margin-top: 28px;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -102,14 +110,15 @@ body {
   opacity: 0.85;
 }
 
-/* CTA — 2e ligne */
 .cta-sub {
   font-size: 12px;
   letter-spacing: 0.8px;
   opacity: 0.8;
 }
 
-/* LANG — COMMUN */
+/* =========================
+   LANG
+========================= */
 .lang {
   position: fixed;
   top: 18px;
@@ -123,9 +132,8 @@ body {
   font-weight: bold;
 }
 
-
 /* ======================================================
-   MOBILE — TOUT EST ICI / RIEN AILLEURS
+   MOBILE — TOUT EST ICI
 ====================================================== */
 @media (max-width: 768px) {
 
@@ -139,15 +147,12 @@ body {
   }
 
   .hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     object-position: center 48%;
   }
 
   .overlay {
     top: auto;
-    bottom: 100px;
+    bottom: 160px;
     left: 0;
     right: 0;
     padding: 0 20px;
@@ -165,9 +170,12 @@ body {
     text-shadow: 0 1px 4px rgba(0,0,0,0.85);
   }
 
+  .cta-wrapper {
+    bottom: 28px;
+  }
+
   .cta-line {
     font-size: 15px;
-    margin-top: 24px;
   }
 
   .lang {
@@ -200,13 +208,15 @@ body {
     <p>Elle accompagne une rencontre inattendue, suspendue entre l’ombre et la lumière.</p>
     <p>Un récit où les mots laissent une trace.</p>
 
-    <a href="livre.html" class="cta-line">
-  <strong>Découvrir mon livre / Acheter</strong>
-  <span class="cta-sub">Vidéo promo</span>
-</a>
-
-
   </div>
+
+  <div class="cta-wrapper">
+    <a href="livre.html" class="cta-line">
+      <strong>Découvrir mon livre / Acheter</strong>
+      <span class="cta-sub">Vidéo promo</span>
+    </a>
+  </div>
+
 </div>
 
 </body>

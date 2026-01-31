@@ -160,29 +160,30 @@ body {
   }
 
   .hero {
-    min-height: 100vh;
-height: auto;
-
-  }
+  position: relative;
+  width: 100vw;
+  height: 100vh;      /* ON REVIENT À vh */
+  max-height: 100svh; /* sécurité mobile moderne */
+}
 
   .hero-img {
     object-position: center 48%;
   }
 
-  .overlay {
-  top: auto;
-  bottom: auto;
-  margin-bottom: 2.5rem;
-  left: 0;
-  right: 0;
-  padding: 0 20px;
+ .overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
+  padding-top: 0;
+padding-left: 20px;
+padding-right: 20px;
+padding-bottom: 140px;
   text-align: center;
-  justify-content: center;
   background: none;
 }
-
-
   .overlay p {
     font-size: 14.5px;
     line-height: 1.4;
@@ -192,12 +193,8 @@ height: auto;
   }
 
  .cta-wrapper {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 1.2rem;
 }
-
-
-
   .cta-line {
   display: inline-flex;
   flex-direction: column;

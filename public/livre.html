@@ -630,6 +630,13 @@ h1 + div {
   border-radius: 1px;
 }
 
+.author-divider {
+  width: 160px;
+  height: 1px;
+  margin: 28px auto 36px;
+  background: rgba(58,47,22,0.28);
+  border-radius: 1px;
+}
 
 
 
@@ -732,20 +739,18 @@ h1 + div {
     font-size: 15px;
     line-height: 1.6;
   }
-.author-signature::after {
-  content: "";
-  display: block;
-  width: 120px;
-  height: 1px;
-  margin: 12px auto 0;
-  background: rgba(58,47,22,0.25);
-}
 
   .author-photo {
     margin: 0 auto;
   }
 
 }
+  .author-divider {
+    width: min(220px, 70%);
+    margin: 32px auto 40px;
+  }
+
+
 
 </style>
 </head>
@@ -796,6 +801,7 @@ h1 + div {
     alt="Simon Lero"
     class="author-photo"
   >
+<div class="author-divider"></div>
 
 </div>
 

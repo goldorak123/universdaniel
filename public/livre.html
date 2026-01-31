@@ -484,9 +484,19 @@ h1 + div {
 @media (max-width: 768px) {
 
   body{
-  background: #050505 !important;
+    background:
+      radial-gradient(
+        900px 600px at 50% 12%,
+        rgba(255,255,255,0.04),
+        transparent 60%
+      ),
+      #0b0b0b !important;
+
     background-image: none !important;
   }
+
+}
+
 
   /* NOTE – toujours droite + texte non justifié sur mobile */
   .note-paper{

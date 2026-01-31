@@ -80,6 +80,14 @@ body{
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
+/* =========================
+   FACEBOOK / WEBVIEW SAFE TOP
+========================= */
+body::before {
+  content: "";
+  display: block;
+  height: 72px;
+}
 
 
 /* =========================

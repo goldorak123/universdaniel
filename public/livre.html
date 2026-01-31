@@ -663,63 +663,48 @@ h1 + div {
 }
 
 
-/* MOBILE — empilement */
-@media (max-width: 768px) {
-  .note-split {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .note-en {
-    text-align: center;
-  }
-
-  .author-photo {
-    margin-top: 12px;
-  }
-}
-.note-separator{
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: rgba(58,47,22,0.55);  /* plus clair que le texte principal */
-  font-style: italic;
-  margin-top: 24px;            /* crée la séparation */
-}
-
-/* FACEBOOK / MOBILE – FIX TITRE + ESPACE NOIR + MENU */
+/* =====================================================
+   MOBILE + FACEBOOK WEBVIEW — FIX FINAL PROPRE
+===================================================== */
 @media (max-width: 768px) {
 
+  /* Base mobile sûre */
+  html,
+  body {
+    height: auto !important;
+    min-height: auto !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Supprime l’espace fantôme Facebook */
+  body::before {
+    height: 0 !important;
+    content: none !important;
+  }
+
+  /* Titre */
   h1 {
     font-size: 32px !important;
     line-height: 1.25;
     margin-top: 24px;
   }
 
+  /* Conteneur principal */
   .container {
     margin-top: 0 !important;
     padding-top: 24px !important;
+    padding-bottom: 48px !important; /* ← espace pour icônes */
   }
 
-  body::before {
-    height: 0 !important;
-  }
-
-  /* Facebook WebView */
-  body {
-    min-height: 100svh;
-  }
-
+  /* Menus / blocs verticaux */
   .menu,
-  .nav,
-  .container {
+  .nav {
     padding-top: 32px !important;
+    padding-bottom: 48px !important;
   }
+
 }
-
-
-
-
 </style>
 </head>
 

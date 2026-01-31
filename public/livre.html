@@ -687,7 +687,7 @@ h1 + div {
   margin-top: 24px;            /* crée la séparation */
 }
 
-/* FACEBOOK / MOBILE – FIX TITRE COUPÉ */
+/* FACEBOOK / MOBILE – FIX TITRE + ESPACE NOIR */
 @media (max-width: 768px) {
 
   h1 {
@@ -695,13 +695,15 @@ h1 + div {
     line-height: 1.25;
     margin-top: 24px;
   }
-@media (max-width: 768px) {
+
   .container {
     margin-top: 0 !important;
     padding-top: 24px !important;
   }
-}
 
+  body::before {
+    height: 0 !important;
+  }
 }
 
 

@@ -150,16 +150,18 @@ body {
 }
 
 /* ======================================================
-   MOBILE
+   MOBILE — TOUT EST ICI (corrigé, sans scroll)
 ====================================================== */
 @media (max-width: 768px) {
 
   body {
     overflow-x: hidden;
+    overflow-y: hidden; /* aucun scroll */
   }
 
   .hero {
-    height: 100svh;
+    width: 100vw;
+    height: 100svh; /* hauteur visible réelle */
   }
 
   .hero-img {
@@ -167,24 +169,27 @@ body {
   }
 
   .overlay {
+    top: auto;
+    bottom: 160px;
+    left: 0;
+    right: 0;
     padding: 0 20px;
     align-items: center;
     text-align: center;
     justify-content: flex-end;
     background: none;
-    bottom: 160px;
   }
 
   .overlay p {
     font-size: 14.5px;
-    line-height: 1.45;
+    line-height: 1.4;
     margin-bottom: 6px;
     max-width: 100%;
     text-shadow: 0 1px 4px rgba(0,0,0,0.85);
   }
 
   .cta-wrapper {
-    bottom: 28px;
+    bottom: 44px; /* 👈 clé : bouton remonté (était 28px) */
   }
 
   .cta-line {
@@ -195,36 +200,10 @@ body {
     top: 16px;
     right: 16px;
   }
-}
-/* =========================
-   MOBILE – éviter bouton coupé
-========================= */
-@media (max-width: 768px) {
-
-  .hero,
-  .hero-content,
-  .hero-inner {
-    min-height: 100vh;
-    height: auto !important;
-    padding-bottom: 40px; /* espace de sécurité sous le bouton */
-  }
 
 }
-/* =========================
-   MOBILE – correction scroll Android (définitif)
-========================= */
-@media (max-width: 768px) {
 
-  html, body {
-    height: auto !important;
-    overflow-y: auto !important;
-  }
 
-  body {
-    padding-bottom: 100px; /* espace réel pour le bouton */
-  }
-
-}
 
 </style>
 </head>

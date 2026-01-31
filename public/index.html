@@ -1,25 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
- <script>
-  (function () {
-    const host = window.location.hostname.toLowerCase();
-    const path = window.location.pathname;
+ <title>Simon Lero — Rencontres au Clair de Lune</title>
 
-    // Domaines qui doivent aller vers livre-accueil.html
-    const isSimonLero =
-      host === "simonlero.com" || host === "www.simonlero.com";
+<meta name="description"
+content="Simon Lero, auteur du roman Rencontres au Clair de Lune. Découvrez l’univers du livre, la genèse de l’œuvre et les vidéos de présentation.">
 
-    // Évite toute boucle et évite de rediriger si on est déjà sur la bonne page
-    if (isSimonLero && path === "/") {
-      window.location.replace("/livre-accueil.html");
-    }
-  })();
-</script>
- 
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mon-Univers.ca</title>
 
 <style>
 html, body {

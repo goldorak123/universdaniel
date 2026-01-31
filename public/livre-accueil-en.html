@@ -156,76 +156,90 @@ body {
 
   body {
     overflow-x: hidden;
-    overflow-y: hidden; /* aucun scroll */
+    overflow-y: hidden;
   }
 
   .hero {
-  position: relative;
-  width: 100vw;
-  height: 100vh;      /* ON REVIENT À vh */
-  max-height: 100svh; /* sécurité mobile moderne */
-}
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    max-height: 100svh;
+  }
 
   .hero-img {
     object-position: center 48%;
   }
 
- .overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 40px;      /* ⬇️ FAIT DESCENDRE LE TEXTE */
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 200px;
-  text-align: center;
-  background: none;
-}
+  /* ===== TEXTE ===== */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    /* ⬇️ POSITION VISUELLE DU TEXTE */
+    padding-top: 52vh;     /* ← CLEF : position du texte */
+    padding-left: 20px;
+    padding-right: 20px;
+
+    text-align: center;
+    background: none;
+  }
 
   .overlay p {
-  font-size: 14.5px;
-  line-height: 1.4;
-  margin-bottom: 6px;
-  max-width: 36ch;
-  margin-left: auto;
-  margin-right: auto;
-  word-break: normal;
-  overflow-wrap: normal;
-  text-wrap: balance;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.85);
-}
+    font-size: 14.5px;
+    line-height: 1.4;
+    margin-bottom: 6px;
+    max-width: 36ch;
+    margin-left: auto;
+    margin-right: auto;
+    word-break: normal;
+    overflow-wrap: normal;
+    text-wrap: balance;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.85);
+  }
 
-.cta-wrapper {
-  margin-top: 1.2rem; /* ⬆️ le bouton remonte */
-}
+  /* ===== BOUTON ===== */
+  .cta-wrapper {
+    position: absolute;
+
+    /* ⬇️ POSITION VISUELLE DU BOUTON */
+    top: 74vh;             /* ← CLEF : position du bouton */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+  }
 
   .cta-line {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 0;
-  color: var(--gold);
-  font-size: 18px;
-  letter-spacing: 1.2px;
-  text-decoration: none;
-  border-top: 1px solid var(--gold);
-  border-bottom: 1px solid var(--gold);
-}
-.cta-line strong {
-  white-space: nowrap;   /* ✅ empêche le retour à la ligne */
-}
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 0;
+    color: var(--gold);
+    font-size: 18px;
+    letter-spacing: 1.2px;
+    text-decoration: none;
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+  }
 
+  .cta-line strong {
+    white-space: nowrap;
+  }
+
+  .cta-sub {
+    text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+  }
 
   .lang {
     top: 16px;
     right: 16px;
   }
-
 }
+
 
 
 

@@ -183,6 +183,21 @@ body {
     right: 16px;
   }
 }
+/* =========================
+   MOBILE – éviter bouton coupé
+========================= */
+@media (max-width: 768px) {
+
+  .hero,
+  .hero-content,
+  .hero-inner {
+    min-height: 100vh;
+    height: auto !important;
+    padding-bottom: 40px; /* espace de sécurité sous le bouton */
+  }
+
+}
+
 </style>
 </head>
 

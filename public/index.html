@@ -272,37 +272,38 @@ body::before{
     display:none; 
   }
 
-  /* ===== FOOTER AÉRÉ MOBILE ===== */
+ /* ===== FOOTER AÉRÉ MOBILE ===== */
 
-  .footer{
-    position:relative;
-    margin-top:48px;
-    padding:20px 0 28px;
-    line-height:1.4;
-  }
-
-  .footer-top-links{
-    display:block;
-    margin-bottom:18px;
-  }
-
-  .footer-top-links a{
-    color:var(--muted);
-    text-decoration:none;
-  }
-
-  .footer-top-links .sep{
-    margin:0 8px;
-    opacity:0.5;
-  }
-
-  .social{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:10px;                 /* espace horizontal entre icônes */
-  margin:8px 0 10px;        /* espace vertical réduit */
+.footer{
+  position: relative;
+  margin-top: 56px;          /* espace global propre */
+  padding: 20px 0 20px;
+  line-height: 1.4;
 }
+
+.footer-top-links{
+  display: block;
+  margin-bottom: 24px;       /* ← éloigne À propos / Me contacter des icônes */
+}
+
+.footer-top-links a{
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-top-links .sep{
+  margin: 0 8px;
+  opacity: 0.5;
+}
+
+.social{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;                 /* espace horizontal entre icônes */
+  margin: 8px 0 10px;        /* espace vertical réduit */
+}
+
 
 .social img{
   width:22px;

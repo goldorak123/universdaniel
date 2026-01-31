@@ -194,8 +194,22 @@ bottom: calc(28px + env(safe-area-inset-bottom, 0px) + 24px);
   }
 
   .cta-line {
-    font-size: 15px;
-  }
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 0;
+  color: var(--gold);
+  font-size: 18px;
+  letter-spacing: 1.2px;
+  text-decoration: none;
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+}
+.cta-line strong {
+  white-space: nowrap;   /* ✅ empêche le retour à la ligne */
+}
+
 
   .lang {
     top: 16px;

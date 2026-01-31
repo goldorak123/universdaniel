@@ -172,8 +172,9 @@ body {
   }
 
   .cta-wrapper {
-    bottom: 44px; /* 👈 clé : bouton remonté (était 28px) */
-  }
+  bottom: calc(56px + env(safe-area-inset-bottom, 0px));
+}
+
 
   .cta-line {
   display: inline-flex;

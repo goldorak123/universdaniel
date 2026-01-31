@@ -687,7 +687,7 @@ h1 + div {
   margin-top: 24px;            /* crée la séparation */
 }
 
-/* FACEBOOK / MOBILE – FIX TITRE + ESPACE NOIR */
+/* FACEBOOK / MOBILE – FIX TITRE + ESPACE NOIR + MENU */
 @media (max-width: 768px) {
 
   h1 {
@@ -704,7 +704,19 @@ h1 + div {
   body::before {
     height: 0 !important;
   }
+
+  /* Facebook WebView */
+  body {
+    min-height: 100svh;
+  }
+
+  .menu,
+  .nav,
+  .container {
+    padding-top: 32px !important;
+  }
 }
+
 
 
 

@@ -161,7 +161,7 @@ body {
 
   .hero {
     width: 100vw;
-    height: 100svh; /* hauteur visible réelle */
+    height: 100dvh; /* hauteur visible réelle */
   }
 
   .hero-img {
@@ -189,7 +189,8 @@ body {
   }
 
   .cta-wrapper {
-    bottom: 44px; /* 👈 clé : bouton remonté (était 28px) */
+bottom: calc(28px + env(safe-area-inset-bottom, 0px) + 24px);
+
   }
 
   .cta-line {
